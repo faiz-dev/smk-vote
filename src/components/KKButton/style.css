@@ -1,0 +1,28 @@
+
+.btn {
+    @apply  py-2 px-4 rounded;
+}
+
+.btn:disabled {
+    @apply opacity-40
+}
+
+.btn:hover {
+    /* @apply text-accent; */
+}
+
+.btn-sm {
+    @apply py-2 px-4 text-xs;
+}
+
+.btn-md {
+    @apply py-2 px-4 text-base;
+}
+
+.btn-primary {
+    @apply bg-primary text-white;
+}
+
+.btn-secondary {
+    @apply bg-surface2 border border-primary;
+}
