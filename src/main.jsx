@@ -4,11 +4,10 @@ import { RouterProvider } from 'react-router-dom'
 import App from './features/App'
 import routes from './routes'
 import './index.css'
+import KPULogin from './features/KPULogin'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={routes}>
-      <App />
-    </RouterProvider>
+    <KPULogin/>
   </React.StrictMode>
 )
