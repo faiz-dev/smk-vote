@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AuthProvider from "./AuthProvider";
 import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
 import { ErrorPage } from "./features/ErrorPages";
@@ -11,7 +12,10 @@ import Voting from "./features/Voting";
 const routes = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: 
+            <AuthProvider isProtected={true}>
+                <App />
+            </AuthProvider>,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -30,11 +34,17 @@ const routes = createBrowserRouter([
     },
     {
         path: '/login',
-        element: <Login />
+        element: 
+            <AuthProvider>
+                <Login />
+            </AuthProvider>
     },
     {
         path: '/login/alt',
-        element: <AlternativeLogin />
+        element: 
+            <AuthProvider>
+                <AlternativeLogin />
+            </AuthProvider>
     },
 ])
 
