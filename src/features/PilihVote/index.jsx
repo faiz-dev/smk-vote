@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../AuthContext";
 import Header from "../../components/Header";
 
 const PilihVote = () => {
+    const { token } = useContext(AuthContext)
     const votings = [
         {
             id: 1,
@@ -17,7 +19,7 @@ const PilihVote = () => {
         },
         
         {
-            id: 2,
+            id: 3,
             title: 'Pemilihan Pradana Putra',
             datetime: '2022-11-20 08:00:00',
             img: 'https://dummyimage.com/80x80/000/fff.jpg&&text=2',
@@ -32,7 +34,7 @@ const PilihVote = () => {
     return (
         <>
             <Header name='Alfian' />
-            <p className="mt-4">Berikut daftar voting yang tersedia (tekan untuk mulai voting)</p>
+            <p className="mt-4">Berikut daftar voting yang tersedia (tekan untuk mulai voting) {token}</p>
             <div className="votings mt-4">
                 {votings.map(v => (
                     <div className="card mb-3 h-[120px]" key={v.id} onClick={() => pilihVote(v.id)}>
