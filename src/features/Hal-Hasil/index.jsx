@@ -6,6 +6,16 @@ const HalHasil = () => {
             id: 1,
             name: 'OSIS',
             img: 'https://dummyimage.com/300x100/81A9B8/fff&text=OSIS'
+        },
+        {
+            id: 2,
+            name: "Pradana Putra",
+            img: 'https://dummyimage.com/300x100/81A9B8/fff&text=Pradana Putra'
+        },
+        {
+            id: 3,
+            name: "Pradani Putri",
+            img: 'https://dummyimage.com/300x100/81A9B8/fff&text=Pradani Putri'
         }
     ]
     
@@ -40,7 +50,7 @@ const HalHasil = () => {
                     Pradana Putri
                 </h1>
                 <img src="" alt="Pradana Putri" loading="lazy" />
-            </div> */}
+            </div>  */}
             <button className="bg-cyan-400 mt-10 p-2 px-10 mx-auto text-white rounded-xl md:mt-20 md:col-start-2 md:hover:bg-cyan-500">
                 HOME
             </button>
