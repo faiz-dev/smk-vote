@@ -34,7 +34,7 @@ const routes = createBrowserRouter([
         ]
     },
     {
-        path: '/login',
+        path: '/dev/hasil',
         element: 
             <AuthProvider>
                 <Sukses />

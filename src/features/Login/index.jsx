@@ -61,7 +61,7 @@ const Login = () => {
                     onSuccess={onSuccess}
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
-                    isSignedIn={false}
+                    isSignedIn={true}
                     render={renderProp => (
                         <div className="mt-10">
                             <KKPrimaryButton {...renderProp}> <BsGoogle size={13} />  Klik di sini untuk login</KKPrimaryButton>                   
