@@ -7,6 +7,7 @@ import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
 import Voting from "./features/Voting";
+import VotingPramuka from "./features/VotingPramuka";
 
 
 const routes = createBrowserRouter([
@@ -31,6 +32,13 @@ const routes = createBrowserRouter([
                 element: <Sukses />
             }
         ]
+    },
+    {
+        path: '/yarn/voting',
+        element: 
+            <AuthProvider>
+                <VotingPramuka />
+            </AuthProvider>
     },
     {
         path: '/login',
