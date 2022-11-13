@@ -4,6 +4,8 @@ import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
+import HalPortal from "./features/Hal-Portal";
+import KPULogin from "./features/KPULogin";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
@@ -34,7 +36,21 @@ const routes = createBrowserRouter([
         ]
     },
     {
+        path: '/dev/menu',
+        element: 
+            <AuthProvider>
+                <HalPortal/>
+            </AuthProvider>
+    },
+    {
         path: '/dev/hasil',
+        element: 
+            <AuthProvider>
+                <HalHasil />
+            </AuthProvider>
+    },
+    {
+        path: '/dev/sukses',
         element: 
             <AuthProvider>
                 <Sukses />
@@ -44,7 +60,7 @@ const routes = createBrowserRouter([
         path: '/login',
         element: 
             <AuthProvider>
-                <Login />
+                <Login/>
             </AuthProvider>
     },
     {
