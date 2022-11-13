@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import Choice from "./Choice";
 import { IoArrowBack } from 'react-icons/io5'
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { KKPrimaryButton, KKSecondaryButton } from "../../components/KKButton";
+import AuthContext from "../../AuthContext";
 
 const Voting = ({params}) => {
     const {id} = useParams()
+    const {url} = useContext(AuthContext);  
     const [selected, setSelected] = useState(0)
     const navigate = useNavigate()
+    const [calon, setCalon] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            const calons = axios.get()
+        })()
+    }, [id])
 
     const dataVote = {
         choices: [

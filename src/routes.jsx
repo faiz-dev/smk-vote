@@ -3,6 +3,7 @@ import AuthProvider from "./AuthProvider";
 import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
 import { ErrorPage } from "./features/ErrorPages";
+import HalHasil from "./features/Hal-Hasil";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
@@ -38,6 +39,13 @@ const routes = createBrowserRouter([
         element: 
             <AuthProvider>
                 <VotingPramuka />
+            </AuthProvider>
+    },
+    {
+        path: '/login',
+        element: 
+            <AuthProvider>
+                <Sukses />
             </AuthProvider>
     },
     {
