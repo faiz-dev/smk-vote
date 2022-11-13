@@ -1,9 +1,22 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../AuthContext";
 import Header from "../../components/Header";
 
 const PilihVote = () => {
-    const { token } = useContext(AuthContext)
+    const { token, url } = useContext(AuthContext)
+    const [votes, setVotes] = useState([])
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        (async() => {
+            const p = await axios.get(`${url}/periode`)
+                .then(res => res.data)
+            setVotes(p)
+        })()
+    }, [])
+
     const votings = [
         {
             id: 1,
@@ -28,21 +41,26 @@ const PilihVote = () => {
   
     const pilihVote = (id) => {
         console.log('Menuju voting',id)
-        window.location.href = `./vote/${id}`
+        navigate('/vote/'+id)
     }
 
     return (
         <>
             <Header name='Alfian' />
-            <p className="mt-4">Berikut daftar voting yang tersedia (tekan untuk mulai voting) {token}</p>
+            <p className="mt-4">Berikut daftar voting yang tersedia (tekan untuk mulai voting)</p>
             <div className="votings mt-4">
-                {votings.map(v => (
+                {votes.map(v => (
                     <div className="card mb-3 h-[120px]" key={v.id} onClick={() => pilihVote(v.id)}>
-                        <h2 className="text-[13px]">{v.title}</h2>
+                        <h2 className="text-[13px]">{v.name}</h2>
                         <p>{v.datetime}</p>
                         <p>{v.img}</p>
                     </div>
                 ))}
+                {votes.length > 0 ? '' : (
+                    <div className="shadow-none text-center font-bold text-gray-500 mt-10 border border-dashed border-gray-600 py-5 rounded-lg">
+                        Tidak ada Pemilihan aktif
+                    </div>
+                )}
             </div>
         </>
     )

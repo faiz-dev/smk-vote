@@ -7,13 +7,14 @@ const AuthProvider = ({children, isProtected = false}) => {
     const [token, setToken] = useState('')
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
+    const url = 'https://localhost:7153/api'
     const navigate = useNavigate()
 
     const setPresistedToken = (token) =>{
         setToken(token)
         localStorage.setItem('token', token)
     } 
-    
+
     useEffect(() => {
         (async () => {
             if (email != "") {
@@ -35,7 +36,7 @@ const AuthProvider = ({children, isProtected = false}) => {
 
     return (
         <AuthContext.Provider value={{
-            email, setEmail, name, token
+            email, setEmail, name, token, url
         }}>{children}</AuthContext.Provider>
     )
 }
