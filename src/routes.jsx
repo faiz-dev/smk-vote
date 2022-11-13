@@ -10,6 +10,7 @@ import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
 import Voting from "./features/Voting";
+import VotingPramuka from "./features/VotingPramuka";
 
 
 const routes = createBrowserRouter([
@@ -34,13 +35,6 @@ const routes = createBrowserRouter([
                 element: <Sukses />
             }
         ]
-    },
-    {
-        path: '/dev/menu',
-        element: 
-            <AuthProvider>
-                <HalPortal/>
-            </AuthProvider>
     },
     {
         path: '/dev/hasil',
