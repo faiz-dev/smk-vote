@@ -1,1 +1,0 @@
-hallo ini dari rozi

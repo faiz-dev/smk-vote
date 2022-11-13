@@ -1,6 +1,6 @@
 import React from "react";
 
-const Voting = () => {
+const VotingPramuka = () => {
     return(
         <div>
             <h1>VOTING</h1>

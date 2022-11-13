@@ -37,13 +37,6 @@ const routes = createBrowserRouter([
         ]
     },
     {
-        path: '/dev/hasil',
-        element: 
-            <AuthProvider>
-                <HalHasil />
-            </AuthProvider>
-    },
-    {
         path: '/login',
         element: 
             <AuthProvider>
@@ -57,6 +50,27 @@ const routes = createBrowserRouter([
                 <AlternativeLogin />
             </AuthProvider>
     },
+    {
+        path: '/dev/menu',
+        element: 
+            <AuthProvider>
+                <HalPortal />
+            </AuthProvider>
+    },
+    {
+        path: '/dev/votingpramuka',
+        element: 
+            <AuthProvider>
+                <VotingPramuka />
+            </AuthProvider>
+    },
+    {
+        path: '/dev/hasil',
+        element: 
+            <AuthProvider>
+                <HalHasil />
+            </AuthProvider>
+    }
 ])
 
 export default routes
