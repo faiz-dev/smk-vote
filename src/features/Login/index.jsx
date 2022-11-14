@@ -43,6 +43,11 @@ const Login = () => {
         navigate("/")
     }
 
+    const goToVoting = () => {
+        navigate('/menu')
+    }
+
+
     return (
         <>
             <div id="login" className="mt-20 text-center mx-auto md:rounded-2xl md:mt-20 md:bg-slate-200 md:p-14 md:w-96">
