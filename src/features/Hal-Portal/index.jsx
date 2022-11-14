@@ -4,7 +4,7 @@ const HalPortal = () => {
     return (
      
         <div class="">
-            <img src="src/features/Hal-Portal/menu.jpg" className="mx-auto rounded-3xl mt-20 w-80 h-40 md:w-5/6 h-96"/>
+            <img src="src/features/Hal-Portal/menu.jpg" className="mx-auto rounded-3xl mt-20 w-80 h-40 md:w-5/6"/>
             
             <div class=" md:flex ml-40 "> 
                 <a href="#">
