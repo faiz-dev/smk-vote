@@ -27,6 +27,9 @@ const Menu = () => {
     const goToVoting = () => {
         navigate('/voting')
     }
+    const ToHasil = () => {
+        navigate('/dev/hasil')
+    }
 
     return (
         <div className="mx-auto text-center p-3 max-w-[500px]">
@@ -44,7 +47,7 @@ const Menu = () => {
                     </button>
                 ))}
 
-                <button className="py-5 px-10 rounded rounded-md bg-secondary text-white">
+                <button className="py-5 px-10 rounded rounded-md bg-secondary text-white" onClick={ToHasil}>
                     Hasil Pemilihan
                 </button>
             </div>
