@@ -4,10 +4,13 @@ import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
+import HalPortal from "./features/Hal-Portal";
+import KPULogin from "./features/KPULogin";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
 import Voting from "./features/Voting";
+import VotingPramuka from "./features/VotingPramuka";
 
 
 const routes = createBrowserRouter([
@@ -37,14 +40,7 @@ const routes = createBrowserRouter([
         path: '/login',
         element: 
             <AuthProvider>
-                <Sukses />
-            </AuthProvider>
-    },
-    {
-        path: '/login',
-        element: 
-            <AuthProvider>
-                <Login />
+                <Login/>
             </AuthProvider>
     },
     {
@@ -55,12 +51,19 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
-        path: 'voting',
-        element:
-        <AuthProvider>
-            <Voting />
-        </AuthProvider>
-    }
+        path: '/dev/menu',
+        element: 
+            <AuthProvider>
+                <HalPortal />
+            </AuthProvider>
+    },
+    {
+        path: '/dev/votingpramuka',
+        element: 
+            <AuthProvider>
+                <VotingPramuka />
+            </AuthProvider>
+    },
 ])
 
 export default routes
