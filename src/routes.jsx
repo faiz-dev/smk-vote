@@ -73,6 +73,13 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
+        path: '/dev/sukses',
+        element: 
+            <AuthProvider>
+                <Sukses />
+            </AuthProvider>
+    },
+    {
         path: '/dev/hasil',
         element: 
             <AuthProvider>

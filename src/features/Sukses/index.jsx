@@ -9,7 +9,7 @@ const Sukses = () => {
     return (
         <div className="text-center">
             <div className="w-[300px] h-[300px] flex items-center justify-center mx-auto mt-10 mb-4">
-              <img src="src/features/Sukses/Sukses.png" alt="" srcset="" />
+              <img src="src/features/Sukses/Sukses.png" alt="gambar"/>
             </div>
             <h1 className="text-cyan-400 font-bold text-2xl">TERIMAKASIH</h1>
             <p>Anda Telah Mengikuti Ini <br />Dengan Jujur</p>
