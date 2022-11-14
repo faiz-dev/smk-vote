@@ -5,8 +5,7 @@ import App from "./features/App";
 import Vote from "./features/coconut";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
-import HalPortal from "./features/Hal-Portal";
-import KPULogin from "./features/KPULogin";
+import Menu from "./features/Menu";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
@@ -53,10 +52,10 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
-        path: '/dev/menu',
+        path: '/menu',
         element: 
             <AuthProvider>
-                <HalPortal />
+                <Menu />
             </AuthProvider>
     },
     {
@@ -67,14 +66,14 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
-        path: '/dev/votingosis',
+        path: '/voting',
         element: 
             <AuthProvider>
                 <VotingOsis />
             </AuthProvider>
     },
     {
-        path: '/dev/sukses',
+        path: '/sukses',
         element: 
             <AuthProvider>
                 <Sukses />

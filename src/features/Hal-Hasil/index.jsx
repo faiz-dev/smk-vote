@@ -1,4 +1,5 @@
 import React from "react";
+import hasil from './hasil.jpg'
 
 const HalHasil = () => {
     const dataVotes = [
@@ -21,12 +22,7 @@ const HalHasil = () => {
     
     return (
         <div className="mx-auto text-center p-3 md:grid grid-cols-3 grid-rows-2">
-            <div className="bg-gray-400 p-20 font-bold mx-auto rounded-3xl py-25 md:col-span-3 md:w-full">
-                <h1>
-                    HASIL VOTING
-                </h1>
-                <img src="" alt="JPG" loading="lazy" />
-            </div>
+            <img src={hasil} alt="JPG" loading="lazy" className="col-span-3 mx-auto rounded-3xl"/>
             
             {dataVotes.map(v => (
                 <div 
