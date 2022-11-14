@@ -4,6 +4,8 @@ import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
+import KPULogin from "./features/KPULogin";
+import Loading from "./features/Loading";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
