@@ -65,14 +65,14 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
-        path: '/dev/votingosis',
+        path: '/voting',
         element: 
             <AuthProvider>
                 <VotingOsis />
             </AuthProvider>
     },
     {
-        path: '/dev/sukses',
+        path: '/sukses',
         element: 
             <AuthProvider>
                 <Sukses />
