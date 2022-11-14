@@ -45,14 +45,12 @@ const Login = () => {
 
     return (
         <>
-            <div id="login" className="mt-20 text-center">
-                <h1 className="text-center text-primary font-semibold text-3xl">Pilketos</h1>
-                <p className="text-center">Gunakan hak pilihmu! <br />Login dengan akun email SMK {loginMsg} {email} {token}</p>
-
-                
+            <div id="login" className="mt-20 text-center mx-auto md:rounded-2xl md:mt-20 md:bg-slate-200 md:p-14 md:w-90">
+            <img src="src/features/Login/logo.png" alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
+                <h1 className="text-center  font-bold text-3xl mt-10">LOGIN</h1>
 
                 <p className="text-center left-0 right-0 text-[1rem]">
-                    Tidak bisa login google SMK? <Link to="alt" className="text-primary font-bold underline">klik di sini</Link>
+                    Tidak bisa login google SMK? <Link to="alt" className="text-button hover:text-teal-500 font-bold underline">klik di sini</Link>
                 </p>
                 
                 <GoogleLogin
@@ -64,7 +62,7 @@ const Login = () => {
                     isSignedIn={true}
                     render={renderProp => (
                         <div className="mt-10">
-                            <KKPrimaryButton {...renderProp}> <BsGoogle size={13} />  Klik di sini untuk login</KKPrimaryButton>                   
+                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl"> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
                         </div>
                     )}
                 />
