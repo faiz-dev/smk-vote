@@ -54,6 +54,13 @@ const routes = createBrowserRouter([
                 <AlternativeLogin />
             </AuthProvider>
     },
+    {
+        path: 'voting',
+        element:
+        <AuthProvider>
+            <Voting />
+        </AuthProvider>
+    }
 ])
 
 export default routes
