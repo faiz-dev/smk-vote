@@ -9,6 +9,7 @@ import KPULogin from "./features/KPULogin";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
+import VotingOsis from "./features/VoteOsis";
 import Voting from "./features/Voting";
 import VotingPramuka from "./features/VotingPramuka";
 
@@ -64,6 +65,20 @@ const routes = createBrowserRouter([
                 <VotingPramuka />
             </AuthProvider>
     },
+    {
+        path: '/dev/votingosis',
+        element: 
+            <AuthProvider>
+                <VotingOsis />
+            </AuthProvider>
+    },
+    {
+        path: '/dev/hasil',
+        element: 
+            <AuthProvider>
+                <HalHasil />
+            </AuthProvider>
+    }
 ])
 
 export default routes
