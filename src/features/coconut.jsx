@@ -6,7 +6,7 @@ const Vote = () => {
         <img src="iykh.jpg" className="rounded-lg sm:block lg:inline" />
         <img src="iykh.jpg" className="rounded-lg sm:block lg:inline" />
         <img src="iykh.jpg" className="rounded-lg sm:block lg:inline" />
-        <button className="bg-cyan-500 rounded-xl decoration-white sm:   lg:flex">KIRIM</button></>
+        <button className="bg-cyan-500 rounded-xl decoration-white sm:scroll-ml-auto lg:flex">KIRIM</button></>
     )
 } 
 export default Vote
