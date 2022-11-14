@@ -14,7 +14,7 @@ const Sukses = () => {
             </div>
             <h1 className="text-primary-400 font-bold text-2xl">TERIMAKASIH</h1>
             <p>Anda Telah Mengikuti Ini <br />Dengan Jujur</p>
-            <KKPrimaryButton className=" bg-primary w-40 mt-10" onClick={() => {navigate("/")}}>Next</KKPrimaryButton>
+            <KKPrimaryButton className=" bg-primary w-40 mt-10" onClick={() => {navigate("/menu")}}>Next</KKPrimaryButton>
         </div>
     )
 }
