@@ -49,10 +49,6 @@ const Login = () => {
             <img src="src/features/Login/logo.png" alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
                 <h1 className="text-center  font-bold text-3xl mt-10">LOGIN</h1>
 
-                <p className="text-center left-0 right-0 text-[1rem]">
-                    Tidak bisa login google SMK? <Link to="alt" className="text-button hover:text-teal-500 font-bold underline">klik di sini</Link>
-                </p>
-                
                 <GoogleLogin
                     clientId={clientId}
                     buttonText="Sign in with Google"
@@ -66,6 +62,11 @@ const Login = () => {
                         </div>
                     )}
                 />
+
+                <p className="text-center text-[1rem] mt-3">
+                    Tidak bisa login google SMK? <Link to="alt" className="text-button hover:text-teal-500 font-bold underline">klik di sini</Link>
+                </p>
+
             </div>
         </>
     )
