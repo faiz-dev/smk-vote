@@ -43,6 +43,11 @@ const Login = () => {
         navigate("/")
     }
 
+    const goToVoting = () => {
+        navigate('/menu')
+    }
+
+
     return (
         <>
             <div id="login" className="mt-20 text-center mx-auto md:rounded-2xl md:mt-20 md:bg-slate-200 md:p-14 md:w-96">
@@ -58,7 +63,7 @@ const Login = () => {
                     isSignedIn={true}
                     render={renderProp => (
                         <div className="mt-10">
-                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl"> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
+                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl" onClick={goToVoting}> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
                         </div>
                     )}
                 />
