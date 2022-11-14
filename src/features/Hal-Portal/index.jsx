@@ -32,28 +32,24 @@ const HalPortal = () => {
             
         {dataMenu.map(m => (
             <div> 
-            <a href="">
-                <img className="mx-auto mt-10 rounded-3xl md:mt-20 md:w-4/5  cursor-pointer hover:bg-sky-600" src={m.img}/>
-            </a>
+                <img  className="mx-auto mt-10 rounded-3xl md:mt-20 md:w-4/5  cursor-pointer hover:bg-sky-600" src={m.img} />
             </div>
         ))}
             {/* <div class="  "> 
-                <a href="#">
+                
                     <img className="mx-auto mt-10 rounded-3xl md:mt-20 md:w-4/5  cursor-pointer " src="https://dummyimage.com/300x50/13688f/fff.png&text=OSIS"/>
-                </a>
-                <a href="#" >
+               
+                
                     <img className="mx-auto mt-10 rounded-3xl md:mt-20 md:w-4/5 cursor-pointer " src="https://dummyimage.com/300x50/13688f/fff.png&text=PRADANA"/>
-                </a>
+                
             </div>
             
             <div className=" ">
-                <a href="#">
+                
                     <img className=" mx-auto mt-10 rounded-3xl md:mt-20 md:w-4/5 cursor-pointer  " src="https://dummyimage.com/300x50/13688f/fff.png&text=PRADANI"/>
-                </a>
-
-                <a href="#">
+               
                     <img className=" mx-auto mt-10 rounded-3xl md:mt-20 md:w-4/5 cursor-pointer   " src="https://dummyimage.com/300x50/13688f/fff.png&text=HASIL"/>
-                </a>
+               
             </div> */}
         </div>    
         
