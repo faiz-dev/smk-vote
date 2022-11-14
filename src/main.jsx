@@ -10,7 +10,9 @@ import Sukses from './features/Sukses'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HalPortal />
+    <RouterProvider router={routes}>  
+        <App />
+    </RouterProvider>
   </React.StrictMode>
 )
 
