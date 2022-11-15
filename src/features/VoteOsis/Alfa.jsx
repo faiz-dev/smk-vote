@@ -1,6 +1,6 @@
 import React, {useEffect, useState } from "react";
-import calon1 from '../../assets/Calon1.png'
 import axios from "axios";
+
 const VotingOsis2 = () => {
     const [informasi, setInformasi] = useState([])
     useEffect(() => {
@@ -22,14 +22,14 @@ const VotingOsis2 = () => {
     
     return(
         <div className="">
-            <h1 className="font-bold text-center mt-5 text-3xl">{informasi}</h1>
+            <h1 className="font-bold text-center mt-5 text-3xl">{voting.name}</h1>
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">
-                {voting.map(c => (
+                {informasi.map(c => (
                     <img 
-                        src={c.img} 
+                        src={c.photo} 
                         key={c.id} 
-                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.selected ? 'border-secondary ' : ''} bg-primary`}
+                        className={`rounded-3xl pb-1 mx-auto border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
                         />
                 ))}
             </div>
@@ -39,4 +39,4 @@ const VotingOsis2 = () => {
     )
 }
 
-export default VotingOsis2
+export default VotingOsis2
