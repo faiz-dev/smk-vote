@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthProvider from "./AuthProvider";
 import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
-import Vote from "./features/coconut";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
 import Menu from "./features/Menu";
@@ -89,14 +88,7 @@ const routes = createBrowserRouter([
             <AuthProvider>
                 <HalHasil />
             </AuthProvider>
-    },
-    {
-        path: '/dev/alpalkon',
-        element: 
-            <AuthProvider>
-                <Vote />
-            </AuthProvider>
-    }
+    }     
 ])
 
 export default routes

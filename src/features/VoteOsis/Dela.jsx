@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import React from "react";
 import calon1 from '../../assets/Calon1.png'
 const VotingOsis6 = () => {
     const navigate = useNavigate()

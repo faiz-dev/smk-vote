@@ -41,6 +41,27 @@ button {
   font-weight: 600;
 }
 
+progress::-webkit-progress-bar{
+  border-radius: 50px;
+  background-color: #92C6CC;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 50px;
+  background-color: #102740;
+}
+
+progress:after {
+  font-weight: bold;
+  color: #92C6CC;
+	margin:-21px 30px 20px 10px;
+	padding:0;
+	display:inline-block; /* Here is the magic to move with the progress */
+	float:left;
+	content: attr(value) '%';
+}
+  
+
 .card {
   @apply bg-surface2 p-4 rounded shadow;
 }
