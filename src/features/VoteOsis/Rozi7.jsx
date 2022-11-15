@@ -1,17 +1,15 @@
 import React, {useEffect,useState} from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const VotingOsis7 = () => {
     const [judulVoting, setJudul] = useState([])
-    const [candidates, setcandidates] = useState([])
-    const navigate = useNavigate([])
-
+    const [voting, setvoting] = useState([])
+    
     useEffect(() => {
         (async () => {
             const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
                 .then((response) => response.data)
-            setcandidates(result)
+            setvoting(result)
         })()
     }, [])
 
@@ -22,10 +20,6 @@ const VotingOsis7 = () => {
             setJudul(result2)
         })()
     }, [])
-
-    const goToSukses = () => {
-        navigate('/sukses')
-    }
     
     return(
         <div className="">
@@ -36,7 +30,7 @@ const VotingOsis7 = () => {
                 Klik gambar kandidat pilihan anda <br /> untuk memberi voting
             </p>
             <div className="flex-row md:flex">
-                {candidates.map(c => (
+                {voting.map(c => (
                     <img 
                         src={c.photo} 
                         key={c.id} 
@@ -45,9 +39,8 @@ const VotingOsis7 = () => {
                 ))}
             </div>
             <button 
-                className="bg-[url('https://dummyimage.com/172x45/7BA9AC/fff&text=+')] text-white mt-5 mx-auto px-14 py-3 rounded-xl md:display: block"
-                onClick={goToSukses}>
-                Submit
+                className="bg-[url('https://dummyimage.com/172x45/7BA9AC/fff&text=+')] text-white mt-5 mx-auto px-14 py-3 rounded-xl md:display: block" >
+                    Submit
             </button>
         </div>
     )
