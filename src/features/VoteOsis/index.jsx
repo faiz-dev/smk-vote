@@ -1,5 +1,14 @@
 import React from "react";
 import calon1 from '../../assets/Calon1.png'
+
+const Voting = () => {
+    navigate = useNavigate()
+}
+
+const goToHasil = () => {
+    Navigate('/sukses')
+}
+
 const VotingOsis = () => {
     const judulVoting = 'Voting Pradana Putra'
     const candidates = [
@@ -35,8 +44,7 @@ const VotingOsis = () => {
                         />
                 ))}
             </div>
-            <button 
-                className="bg-[url('https://dummyimage.com/172x45/7BA9AC/fff&text=+')] text-white mt-5 mx-auto px-14 py-3 rounded-xl md:display: block">Submit</button>
+            <button className="bg-[url('https://dummyimage.com/172x45/7BA9AC/fff&text=+')] text-white mt-5 mx-auto px-14 py-3 rounded-xl md:display: block" onClick={goToHasil}>Submit</button>
         </div>
     )
 }
