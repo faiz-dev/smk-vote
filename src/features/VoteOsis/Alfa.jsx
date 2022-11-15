@@ -1,7 +1,6 @@
 import React, {useEffect, useState } from "react";
 import calon1 from '../../assets/Calon1.png'
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 const VotingOsis2 = () => {
     const [informasi, setInformasi] = useState([])
     useEffect(() => {
