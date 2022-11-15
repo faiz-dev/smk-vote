@@ -1,6 +1,6 @@
 import React from "react";
 import calon1 from '../../assets/Calon1.png'
-const VotingOsis = () => {
+const VotingOsis6 = () => {
     const judulVoting = 'Voting Pradana Putra'
     const candidates = [
         {
