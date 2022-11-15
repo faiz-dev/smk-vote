@@ -4,17 +4,20 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import VoteOsis from './VoteOsis.jpg'
 const VotingOsis2 = () => {
-    const navigate = useNavigate()
+    const navigate1 = useNavigate()
     const [data, setData] = useState([])
 
     useEffect(() => {
         (async () => {
             const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
-                .then((Response) => Response.data)
+                .then((response) => response.data)
             setData(result)
         })()
     }, [])
-    
+
+    const navigate2 = useNavigate()
+    const [voting, setVoting] = useState([])
+    useEffect(() =>)
     
     return(
         <div className="">
