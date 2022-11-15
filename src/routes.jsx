@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthProvider from "./AuthProvider";
 import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
+import Vote from "./features/coconut";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
 import Menu from "./features/Menu";
@@ -12,7 +13,11 @@ import VotingOsis from "./features/VoteOsis";
 import Voting from "./features/Voting";
 import VotingPramuka from "./features/VotingPramuka";
 import VotingOsis3 from "./features/VoteOsis/Arun";
+<<<<<<< HEAD
 import VotingOsis6 from "./features/VoteOsis/Dela";
+=======
+import VotingOsis8 from "./features/VoteOsis/putra";
+>>>>>>> 7a99a0659f0575aedf12d5a0cc93ed4c4ae5fd8c
 
 
 const routes = createBrowserRouter([
@@ -70,7 +75,11 @@ const routes = createBrowserRouter([
         path: '/voting',
         element: 
             <AuthProvider>
+<<<<<<< HEAD
                 <VotingOsis6 />
+=======
+                <VotingOsis8 />
+>>>>>>> 7a99a0659f0575aedf12d5a0cc93ed4c4ae5fd8c
             </AuthProvider>
     },
     {
@@ -85,6 +94,13 @@ const routes = createBrowserRouter([
         element: 
             <AuthProvider>
                 <HalHasil />
+            </AuthProvider>
+    },
+    {
+        path: '/dev/alpalkon',
+        element: 
+            <AuthProvider>
+                <Vote />
             </AuthProvider>
     }
 ])
