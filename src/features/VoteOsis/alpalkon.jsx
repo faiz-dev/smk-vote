@@ -1,6 +1,19 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import calon1 from '../../assets/Calon1.png'
-const VotingOsis8 = () => {
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import VoteOsis from './VoteOsis.jpg'
+const VotingOsis2 = () => {
+    const navigate = useNavigate()
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
+                .then((Response) => Response.data)
+            setData(result)
+        })()
+    })
     const judulVoting = 'Voting Pradana Putra'
     const candidates = [
         {
