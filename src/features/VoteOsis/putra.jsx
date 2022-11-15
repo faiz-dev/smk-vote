@@ -26,9 +26,9 @@ const VotingOsis8 = () => {
             <div className="flex-row md:flex">
                 {voting.map(c => (
                     <img 
-                        src={c.img} 
+                        src={c.photo} 
                         key={c.id} 
-                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.selected ? 'border-secondary ' : ''} bg-primary`}
+                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
                         />
                 ))}
             </div>
