@@ -1,46 +1,31 @@
 import React, {useEffect, useState } from "react";
 import calon1 from '../../assets/Calon1.png'
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import VoteOsis from './VoteOsis.jpg'
 const VotingOsis2 = () => {
-    const navigate = useNavigate()
-    const [data, setData] = useState([])
-
+    const [informasi, setInformasi] = useState([])
     useEffect(() => {
         (async () => {
             const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
                 .then((Response) => Response.data)
-            setData(result)
+            setInformasi(result)
         })()
-    })
-    const judulVoting = 'Voting Pradana Putra'
-    const candidates = [
-        {
-            id: 1,
-            name: 'Rahmat & Rahmadhani',
-            img: calon1,
-            selected: false
-        },
-        {
-            id: 2,
-            name: 'Andika & Rahmat',
-            img: 'https://dummyimage.com/333x193/81a9b8/fff?text=Andika-Rahmat',
-            selected: true
-        },
-        {
-            id: 3,
-            name: 'Ramadhani & Andika',
-            img: 'https://dummyimage.com/333x193/81a9b8/fff?text=Andika-Rahmat',
-            selected: false
-        }
-    ]
+    }, [])
+
+    const [voting, setVoting] = useState([])
+    useEffect(() =>{
+        (async () => {
+            const result = await axios.get('http://116.197.129.178:8083/api/periode/4')
+                .then((Response)=> Response.data)
+            setVoting(result)
+        })()
+    }, [])
+    
     return(
         <div className="">
-            <h1 className="font-bold text-center mt-5 text-3xl">{judulVoting}</h1>
+            <h1 className="font-bold text-center mt-5 text-3xl">{informasi}</h1>
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">
-                {candidates.map(c => (
+                {voting.map(c => (
                     <img 
                         src={c.img} 
                         key={c.id} 
@@ -54,4 +39,4 @@ const VotingOsis2 = () => {
     )
 }
 
-export default VotingOsis
+export default VotingOsis2
