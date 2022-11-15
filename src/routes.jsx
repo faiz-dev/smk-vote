@@ -12,6 +12,7 @@ import Sukses from "./features/Sukses";
 import VotingOsis from "./features/VoteOsis";
 import Voting from "./features/Voting";
 import VotingPramuka from "./features/VotingPramuka";
+import VotingOsis3 from "./features/VoteOsis/Arun";
 
 
 const routes = createBrowserRouter([
@@ -69,7 +70,7 @@ const routes = createBrowserRouter([
         path: '/voting',
         element: 
             <AuthProvider>
-                <VotingOsis />
+                <VotingOsis3 />
             </AuthProvider>
     },
     {
