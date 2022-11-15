@@ -1,31 +1,27 @@
-import React, {useEffect,useState} from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import React from "react";
+import calon1 from '../../assets/Calon1.png'
 const VotingOsis3 = () => {
-    const [judulVoting, setJudul] = useState([])
-    const [candidates, setcandidates] = useState([])
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
-                .then((response) => response.data)
-            setcandidates(result)
-        })()
-    }, [])
-
-    useEffect(() => {
-        (async () => {
-            const result2 = await axios.get('http://116.197.129.178:8083/api/periode/4')
-                .then((response) => response.data)
-            setJudul(result2)
-        })()
-    }, [])
-
-    const goToSukses = () => {
-        navigate('/sukses')
-    }
+    const judulVoting = 'Voting Pradana Putra'
+    const candidates = [
+        {
+            id: 1,
+            name: 'Rahmat & Rahmadhani',
+            img: calon1,
+            selected: false
+        },
+        {
+            id: 2,
+            name: 'Andika & Rahmat',
+            img: 'https://dummyimage.com/333x193/81a9b8/fff?text=Andika-Rahmat',
+            selected: true
+        },
+        {
+            id: 3,
+            name: 'Ramadhani & Andika',
+            img: 'https://dummyimage.com/333x193/81a9b8/fff?text=Andika-Rahmat',
+            selected: false
+        }
+    ]
     return(
         <div className="">
             <h1 className="font-bold text-center mt-5 text-3xl">{judulVoting.name}</h1>
