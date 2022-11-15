@@ -1,5 +1,9 @@
 import React from "react";
 
+const goToVoting = () => {
+    navigation
+}
+
 const VotingPramuka = () => {
     
     return(
@@ -20,7 +24,9 @@ const VotingPramuka = () => {
                 <img src="https://dummyimage.com/300x300/000/fff.png" className="rounded-2xl" alt="" />
             </div>
             </div>
-            <button className="w-52 block m-auto mt-10 px-4 py-3 text-2xl text-white rounded-xl bg-teal-700">SUBMIT</button>
+            <button
+            onClick = {goToVoting} 
+            className="w-52 block m-auto mt-10 px-4 py-3 text-2xl text-white rounded-xl bg-teal-700">SUBMIT</button>
         </div>
     )
 } 
