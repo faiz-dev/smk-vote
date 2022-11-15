@@ -1,7 +1,10 @@
 import React from "react";
 import calon1 from '../../assets/Calon1.png'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 const VotingOsis3 = () => {
     const judulVoting = 'Voting Pradana Putra'
+    
     const candidates = [
         {
             id: 1,
