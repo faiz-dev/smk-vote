@@ -3,17 +3,6 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import calon1 from '../../assets/Calon1.png'
 
-<<<<<<< HEAD
-const Voting = () => {
-    navigate = useNavigate()
-}
-
-const goToHasil = () => {
-    Navigate('/sukses')
-}
-=======
->>>>>>> 2a30667f0b673a51a867bdb07425462d6aa1ba53
-
 const VotingOsis = () => {
 
     const [JudulVoting, setJudulVoting] = useState([])
@@ -57,12 +46,8 @@ const VotingOsis = () => {
                         />
                 ))}
             </div>
-<<<<<<< HEAD
-            <button className="bg-[url('https://dummyimage.com/172x45/7BA9AC/fff&text=+')] text-white mt-5 mx-auto px-14 py-3 rounded-xl md:display: block" onClick={goToHasil}>Submit</button>
-=======
             <button 
                 className="bg-button text-white mt-5 mx-auto px-14 py-3 rounded-xl md:display: block" onClick={goToHasil}>Submit</button>
->>>>>>> 2a30667f0b673a51a867bdb07425462d6aa1ba53
         </div>
     )
 }

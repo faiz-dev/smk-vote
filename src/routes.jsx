@@ -18,7 +18,6 @@ import VotingOsis8 from "./features/VoteOsis/putra";
 import VotingOsis2 from "./features/VoteOsis/Alfa";
 
 
-
 const routes = createBrowserRouter([
     {
         path: '/',
@@ -74,11 +73,7 @@ const routes = createBrowserRouter([
         path: '/voting',
         element: 
             <AuthProvider>
-<<<<<<< HEAD
-                <VotingOsis7 />
-=======
                 <VotingOsis2 />
->>>>>>> 4c626af3f8a2782b1d689498afadbb034b9961c1
             </AuthProvider>
     },
     {
