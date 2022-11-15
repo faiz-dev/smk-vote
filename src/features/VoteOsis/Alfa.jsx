@@ -2,7 +2,15 @@ import React, {useEffect, useState } from "react";
 import axios from "axios";
 
 const VotingOsis2 = () => {
+    
+    // STATE
+    // useState() -> adalah hooks yang berguna untuk membuat state
     const [informasi, setInformasi] = useState([])
+    const [voting, setVoting] = useState([])
+    const [simpan, setSimpan] = useState(null)
+
+    // HOOKS
+    // useEffect() -> hooks yang akan dipanggil ketika awal render atau ketika ada perubahan state tertentu
     useEffect(() => {
         (async () => {
             const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
@@ -11,7 +19,6 @@ const VotingOsis2 = () => {
         })()
     }, [])
 
-    const [voting, setVoting] = useState([])
     useEffect(() =>{
         (async () => {
             const result = await axios.get('http://116.197.129.178:8083/api/periode/4')
@@ -19,7 +26,13 @@ const VotingOsis2 = () => {
             setVoting(result)
         })()
     }, [])
+
+
+    const pilihCalon = (id) => {
+        setSimpan(id)
+    }
     
+    // TAMPILAN, 
     return(
         <div className="">
             <h1 className="font-bold text-center mt-5 text-3xl">{voting.name}</h1>
@@ -30,6 +43,7 @@ const VotingOsis2 = () => {
                         src={c.photo} 
                         key={c.id} 
                         className={`rounded-3xl pb-1 mx-auto border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
+                        onClick={() => pilihCalon(c.id)}
                         />
                 ))}
             </div>
