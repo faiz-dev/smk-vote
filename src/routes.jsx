@@ -73,11 +73,7 @@ const routes = createBrowserRouter([
         path: '/voting/:id',
         element: 
             <AuthProvider>
-<<<<<<< HEAD
-                <VotingOsis1 />
-=======
                 <VotingOsis6 />
->>>>>>> 61f80ca1aeb73824dccba3c1f0887b3e8197a0d9
             </AuthProvider>
     },
     // {

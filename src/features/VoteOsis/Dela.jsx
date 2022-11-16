@@ -9,14 +9,16 @@ const VotingOsis6 = () => {
     const [judulVoting, setJudul] = useState([])
     const [voting, setVoting] = useState([])
     const [simpan, setSimpan] = useState(null) //null adalah nilai default dari simpan
+    const {id} = useParams()
+    console.log(id)
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/periode/4')
+            const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/${id}`)
                 .then((response) => response.data)
             setJudul(result)
         })()
-    }, [])
+    }, [id])
 
     useEffect(() => {
         (async () => {
@@ -24,7 +26,7 @@ const VotingOsis6 = () => {
                 .then((response) => response.data)
             setVoting(result)
         })()
-    }, [])
+    }, [id])
     
     // useEffect( () => {
     //     fetch (`http://116.197.129.178:8083/api/periode ${id}`)
@@ -33,6 +35,12 @@ const VotingOsis6 = () => {
     //     setUser(data)
     //         })
     // }, [id])
+
+    function ProfilePage() {
+        // Get the userId param from the URL.
+        let { userId } = useParams();
+        // ...
+      }
 
     const cobaSimpan = (id) => {
         setSimpan(id)
@@ -49,30 +57,15 @@ const VotingOsis6 = () => {
     
     return(
         <div className="">
-<<<<<<< HEAD
             <h1 className="font-bold text-center mt-5 text-3xl">{judulVoting.name}</h1>
-=======
-            <div>
-                {JudulVoting.map(j => (
-                    <h1>{j.name}</h1>
-                ))}
-            </div>
-            <h1 className="font-bold text-center mt-5 text-3xl">{judulVoting}</h1>
->>>>>>> 7fd35ea9d142d6d14da5262f7f9501cc446b30de
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">
                 {voting.map(c => (
                     <img 
-<<<<<<< HEAD
                         src={c.photo} 
                         key={c.id}
                         onClick={() => cobaSimpan(c.id)}
                         className={`rounded-3xl pb-1 mx-auto border border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
-=======
-                        src={c.img} 
-                        key={c.id} 
-                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.selected ? 'border-secondary ' : ''} bg-primary`}
->>>>>>> 7fd35ea9d142d6d14da5262f7f9501cc446b30de
                         />
                 ))}
             </div>

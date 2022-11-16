@@ -59,13 +59,13 @@ const Menu = () => {
 
             <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
                 
-                {pemilihan.map(p => (
+                {pemilihan.filter(v =>v.isActive).map(p => (
                     <button 
                         key={p.id} 
                         className="bg-primary py-5 px-10 rounded rounded-md"
                         onClick={ () => goToVoting(p.id) }
                         >
-                        {p.name}
+                        {p.name +' '+ p.waktuBerakhir} 
 
                         {/* <Routes>
                             <Route path="users">
