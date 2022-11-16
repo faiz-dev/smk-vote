@@ -24,6 +24,10 @@ const Menu = () => {
         navigate('/dev/hasil')
     }
 
+    const BlogDetails = () => {
+        const { id } = useParams()
+    }
+
     return (
         <div className="mx-auto text-center p-3 max-w-[500px]">
             <img src={menu} className="rounded-3xl py-25 md:col-span-2 md:w-full mb-10"/>

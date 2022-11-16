@@ -16,6 +16,7 @@ import VotingOsis3 from "./features/VoteOsis/Arun";
 import VotingOsis6 from "./features/VoteOsis/Dela";
 import VotingOsis8 from "./features/VoteOsis/putra";
 import VotingOsis2 from "./features/VoteOsis/Alfa";
+import VotingOsis1 from "./features/VoteOsis/index";
 
 
 const routes = createBrowserRouter([
@@ -73,7 +74,7 @@ const routes = createBrowserRouter([
         path: '/voting',
         element: 
             <AuthProvider>
-                <VotingOsis2 />
+                <VotingOsis1 />
             </AuthProvider>
     },
     {
@@ -88,13 +89,6 @@ const routes = createBrowserRouter([
         element: 
             <AuthProvider>
                 <HalHasil />
-            </AuthProvider>
-    },
-    {
-        path: '/dev/alpalkon',
-        element: 
-            <AuthProvider>
-                <Vote />
             </AuthProvider>
     }
 ])
