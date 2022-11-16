@@ -39,7 +39,7 @@ const Menu = () => {
 
     const goToVoting = (id) => {
         setId(id)
-        navigate(`/voting/${id}`)
+        navigate(`/voting/${pemilihan.id}`)
     }
 
     const ToHasil = () => {
@@ -59,13 +59,13 @@ const Menu = () => {
 
             <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
                 
-                {pemilihan.map(p => (
+                {pemilihan.filter(v => v.isActive).map(p => (
                     <button 
                         key={p.id} 
-                        className="bg-primary py-5 px-10 rounded rounded-md"
+                        className="bg-primary py-5 px-10 rounded-md"
                         onClick={ () => goToVoting(p.id) }
                         >
-                        {p.name}
+                        {p.name+" "+p.waktuBerakhir}
 
                         {/* <Routes>
                             <Route path="users">
@@ -76,7 +76,7 @@ const Menu = () => {
                     </button>
                 ))}
 
-                <button className="py-5 px-10 rounded rounded-md bg-secondary text-white" onClick={ToHasil}>
+                <button className="py-5 px-10 rounded-md bg-secondary text-white" onClick={ToHasil}>
                     Hasil Pemilihan
                 </button>
             </div>
