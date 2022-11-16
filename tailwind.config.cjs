@@ -14,7 +14,9 @@ module.exports = {
         textgray: '#575757',
         textblack: '#001403',
         error: '#b00020',
-        button: '#7BA9AC'
+        button: '#7BA9AC',
+        div:'#81A9B8',
+        bulat:'#5B838B'
       },
       borderRadius: {
         DEFAULT: '0.35rem'

@@ -7,7 +7,7 @@ const AuthProvider = ({children, isProtected = false}) => {
     const [token, setToken] = useState('')
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
-    const url = 'http://116.197.129.178:8083/api'
+    const url = 'http://localhost:7153/api'
     const navigate = useNavigate()
 
     const setPresistedToken = (token) =>{

@@ -1,12 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom'
 import menu from './menu.jpg'
+import { Route, Router, Routes } from "react-router-dom";
+import Voting from "../Voting";
+import { createBrowserRouter } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 
 const Menu = () => {
     // state, props, hooks
     const navigate = useNavigate()
     const [pemilihan, setPemilihan] = useState([])
+    // const {id} = useParams()
+    const {user, setUser} = useState(null)
+    const [idd, setId] = useState([])
+
 
     useEffect(() => {
         (async () => {
@@ -16,13 +25,33 @@ const Menu = () => {
         })()
     }, [])
 
-    const goToVoting = () => {
-        navigate('/voting')
+    // useEffect( () => {
+    //     fetch (`http://116.197.129.178:8083/api/periode ${id}`)
+    //     .then((resp) => resp.json())
+    //     .then((data) => {
+    //         setUser(data)
+    //     })
+    // }, [id])
+
+    // const tangkapId = (id) => {
+    //     setId(id)
+    // }
+
+    const goToVoting = (id) => {
+        setId(id)
+        navigate(`/voting/${id}`)
     }
 
     const ToHasil = () => {
         navigate('/dev/hasil')
     }
+
+    function ProfilePage() {
+        // Get the userId param from the URL.
+        let { setId } = useParams();
+        // ...
+    }
+      
 
     return (
         <div className="mx-auto text-center p-3 max-w-[500px]">
@@ -34,9 +63,16 @@ const Menu = () => {
                     <button 
                         key={p.id} 
                         className="bg-primary py-5 px-10 rounded rounded-md"
-                        onClick={goToVoting}
+                        onClick={ () => goToVoting(p.id) }
                         >
                         {p.name}
+
+                        {/* <Routes>
+                            <Route path="users">
+                                <Route path=":http://116.197.129.178:8083/api/calon/periode/" element={<Voting />} />
+                                <Route path="me" element={...} />
+                            </Route>
+                        </Routes> */}
                     </button>
                 ))}
 

@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import AuthProvider from "./AuthProvider";
 import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
-//import Vote from "./features/coconut";
 import { ErrorPage } from "./features/ErrorPages";
 import HalHasil from "./features/Hal-Hasil";
 import Menu from "./features/Menu";
@@ -71,12 +70,23 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
-        path: '/voting',
+        path: '/voting/:id',
         element: 
             <AuthProvider>
+<<<<<<< HEAD
                 <VotingOsis1 />
+=======
+                <VotingOsis6 />
+>>>>>>> 61f80ca1aeb73824dccba3c1f0887b3e8197a0d9
             </AuthProvider>
     },
+    // {
+    //     path: '/voting6',
+    //     element: 
+    //         <AuthProvider>
+    //             <VotingOsis6 />
+    //         </AuthProvider>
+    // },
     {
         path: '/sukses',
         element: 
