@@ -2,41 +2,62 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import calon1 from '../../assets/Calon1.png'
+import { useParams } from "react-router-dom";
+
 const VotingOsis6 = () => {
     const navigate = useNavigate()
-    const [JudulVoting, setJudulVoting] = useState([])
-    const [pemilihan, setPemilihan] = useState([])
+    const [judulVoting, setJudul] = useState([])
+    const [voting, setVoting] = useState([])
+    const [simpan, setSimpan] = useState(null) //null adalah nilai default dari simpan
 
     useEffect(() => {
         (async () => {
             const result = await axios.get('http://116.197.129.178:8083/api/periode/4')
                 .then((response) => response.data)
-            setJudulVoting(result)
+            setJudul(result)
         })()
     }, [])
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/calon/periode/4')
+            const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/${id}`)
                 .then((response) => response.data)
-            setPemilihan(result)
+            setVoting(result)
         })()
     }, [])
+    
+    // useEffect( () => {
+    //     fetch (`http://116.197.129.178:8083/api/periode ${id}`)
+    //     .then((resp) => resp.json())
+    //     .then((data) => {
+    //     setUser(data)
+    //         })
+    // }, [id])
+
+    const cobaSimpan = (id) => {
+        setSimpan(id)
+    }
 
     const goToSukses = () =>{
-        navigate('/sukses')
+        if (simpan===null){
+            alert('harus ada calon yang anda pilih')
+        } else {
+            console.log(simpan)
+        }
+        //navigate('/sukses')
     }
     
     return(
         <div className="">
-            <h1 className="font-bold text-center mt-5 text-3xl">{JudulVoting.name}</h1>
+            <h1 className="font-bold text-center mt-5 text-3xl">{judulVoting.name}</h1>
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">
-                {pemilihan.map(c => (
+                {voting.map(c => (
                     <img 
                         src={c.photo} 
-                        key={c.id} 
-                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.selected ? 'border-secondary ' : ''} bg-primary`}
+                        key={c.id}
+                        onClick={() => cobaSimpan(c.id)}
+                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
                         />
                 ))}
             </div>

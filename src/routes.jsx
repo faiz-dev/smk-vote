@@ -70,12 +70,19 @@ const routes = createBrowserRouter([
             </AuthProvider>
     },
     {
-        path: '/voting',
+        path: '/voting/:id',
         element: 
             <AuthProvider>
-                <VotingOsis2 />
+                <VotingOsis6 />
             </AuthProvider>
     },
+    // {
+    //     path: '/voting6',
+    //     element: 
+    //         <AuthProvider>
+    //             <VotingOsis6 />
+    //         </AuthProvider>
+    // },
     {
         path: '/sukses',
         element: 
@@ -88,13 +95,6 @@ const routes = createBrowserRouter([
         element: 
             <AuthProvider>
                 <HalHasil />
-            </AuthProvider>
-    },
-    {
-        path: '/dev/alpalkon',
-        element: 
-            <AuthProvider>
-                <Vote />
             </AuthProvider>
     }
 ])
