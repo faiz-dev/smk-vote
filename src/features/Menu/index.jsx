@@ -14,7 +14,7 @@ const Menu = () => {
     const [pemilihan, setPemilihan] = useState([])
     // const {id} = useParams()
     const {user, setUser} = useState(null)
-    const [idd, setId] = useState([])
+    const [id, setId] = useState([])
 
 
     useEffect(() => {
@@ -25,21 +25,9 @@ const Menu = () => {
         })()
     }, [])
 
-    // useEffect( () => {
-    //     fetch (`http://116.197.129.178:8083/api/periode ${id}`)
-    //     .then((resp) => resp.json())
-    //     .then((data) => {
-    //         setUser(data)
-    //     })
-    // }, [id])
-
-    // const tangkapId = (id) => {
-    //     setId(id)
-    // }
-
     const goToVoting = (id) => {
         setId(id)
-        navigate(`/voting/${pemilihan.id}`)
+        navigate(`/voting/${id}`)
     }
 
     const ToHasil = () => {
@@ -49,7 +37,6 @@ const Menu = () => {
     function ProfilePage() {
         // Get the userId param from the URL.
         let { setId } = useParams();
-        // ...
     }
       
 
@@ -59,28 +46,13 @@ const Menu = () => {
 
             <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
                 
-<<<<<<< HEAD
-                {pemilihan.filter(v =>v.isActive).map(p => (
-=======
                 {pemilihan.filter(v => v.isActive).map(p => (
->>>>>>> a3f655d3efd6724c09d53bd1d57b49e07f394527
                     <button 
                         key={p.id} 
                         className="bg-primary py-5 px-10 rounded-md"
                         onClick={ () => goToVoting(p.id) }
                         >
-<<<<<<< HEAD
                         {p.name +' '+ p.waktuBerakhir} 
-=======
-                        {p.name+" "+p.waktuBerakhir}
->>>>>>> a3f655d3efd6724c09d53bd1d57b49e07f394527
-
-                        {/* <Routes>
-                            <Route path="users">
-                                <Route path=":http://116.197.129.178:8083/api/calon/periode/" element={<Voting />} />
-                                <Route path="me" element={...} />
-                            </Route>
-                        </Routes> */}
                     </button>
                 ))}
 
