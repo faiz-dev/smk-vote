@@ -26,7 +26,7 @@ const Login = () => {
 
     useEffect(() => {
         if (token != '') {
-            submit()
+            navigate("/menu")
         }
     }, [token])
 
@@ -38,15 +38,6 @@ const Login = () => {
     const onFailure = (err) => {
         console.log('failed:', err);
     };
-
-    const submit = () => {
-        navigate("/")
-    }
-
-    const goToVoting = () => {
-        navigate('/menu')
-    }
-
 
     return (
         <>
@@ -60,10 +51,10 @@ const Login = () => {
                     onSuccess={onSuccess}
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
-                    isSignedIn={true}
+                    isSignedIn={false}
                     render={renderProp => (
                         <div className="mt-10">
-                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl" onClick={goToVoting}> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
+                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl"> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
                         </div>
                     )}
                 />

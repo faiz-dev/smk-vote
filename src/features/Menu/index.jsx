@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom'
 import menu from './menu.jpg'
@@ -7,11 +7,13 @@ import { Route, Router, Routes } from "react-router-dom";
 import Voting from "../Voting";
 import { createBrowserRouter } from "react-router-dom";
 import {  Outlet } from "react-router-dom";
+import AuthContext from "../../AuthContext";
 
 const Menu = () => {
     // state, props, hooks
     const navigate = useNavigate()
     const [pemilihan, setPemilihan] = useState([])
+    const { url } = useContext(AuthContext)
     //const {id} = useParams()
     const {user, setUser} = useState(null)
     const [id, setId] = useState([])
@@ -19,7 +21,7 @@ const Menu = () => {
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/periode/')
+            const result = await axios.get(url+'/periode')
                 .then((response) => response.data)
             setPemilihan(result)
         })()
@@ -47,7 +49,7 @@ const Menu = () => {
 
             <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
                 
-                {pemilihan.map(p => (
+                {pemilihan.filter(p => p.isActive).map(p => (
                     <button 
                         key={p.id} 
                         className="bg-primary py-5 px-10 rounded-md"
