@@ -5,6 +5,7 @@ import { Link, redirect, useNavigate } from "react-router-dom";
 import { GoogleLogin } from 'react-google-login'
 import { gapi } from 'gapi-script'
 import axios from "axios";
+import logo from './logo.png'
 import AuthContext from "../../AuthContext";
 
 
@@ -42,7 +43,7 @@ const Login = () => {
     return (
         <>
             <div id="login" className="mt-20 text-center mx-auto md:rounded-2xl md:mt-20 md:bg-slate-200 md:p-14 md:w-96">
-            <img src="src/features/Login/logo.png" alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
+            <img src={logo} alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
                 <h1 className="text-center  font-bold text-3xl mt-10">LOGIN</h1>
 
                 <GoogleLogin

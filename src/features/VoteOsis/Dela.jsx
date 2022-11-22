@@ -7,6 +7,7 @@ import AuthContext from "../../AuthContext";
 const VotingOsis6 = () => {
     const navigate = useNavigate()
     const { url, token } = useContext(AuthContext)
+    const [periode, setPeriode] = useState({})
     const [voting, setVoting] = useState([])
     const [simpan, setSimpan] = useState(null) //null adalah nilai default dari simpan
     const { periodeId } = useParams() // useparams mengambil data dari url
@@ -20,6 +21,14 @@ const VotingOsis6 = () => {
             })
                 .then((response) => response.data)
             setVoting(result)
+        })()
+    }, [periodeId])
+
+    useEffect(() => {
+        (async () => {
+            const result = await axios.get(`${url}/periode/${periodeId}`)
+                .then(res => res.data)
+            setPeriode(result)
         })()
     }, [periodeId])
     
@@ -60,7 +69,7 @@ const VotingOsis6 = () => {
     return(
         <div className="">
             
-                <h1 className="font-bold text-center mt-5 text-3xl">PEMILIHAN</h1>
+                <h1 className="font-bold text-center mt-5 text-3xl">{periode.name}</h1>
             
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">

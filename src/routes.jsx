@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import AuthProvider from "./AuthProvider";
 import AlternativeLogin from "./features/AlternativeLogin";
 import App from "./features/App";
@@ -8,17 +8,12 @@ import Menu from "./features/Menu";
 import Login from "./features/Login";
 import PilihVote from "./features/PilihVote";
 import Sukses from "./features/Sukses";
-import VotingOsis from "./features/VoteOsis";
 import Voting from "./features/Voting";
 import VotingPramuka from "./features/VotingPramuka";
-import VotingOsis3 from "./features/VoteOsis/Arun";
 import VotingOsis6 from "./features/VoteOsis/Dela";
-import VotingOsis8 from "./features/VoteOsis/putra";
-import VotingOsis2 from "./features/VoteOsis/Alfa";
-import VotingOsis1 from "./features/VoteOsis/index";
 
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
     {
         path: '/',
         element: 
