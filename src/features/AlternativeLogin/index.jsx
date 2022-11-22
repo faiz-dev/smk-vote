@@ -30,8 +30,8 @@ const AlternativeLogin = () => {
 
                     <KKInput type={'password'} 
                         label="Kode Akses" 
-                        value={email} 
-                        onChange={setEmail} />
+                        value={loginCode} 
+                        onChange={setLoginCode} />
                     <br />
                     <KKPrimaryButton isBlock={true} onClick={() => setEmail1('amin')}> <RiLoginCircleLine size={15} />Kirim</KKPrimaryButton>                   
                 </div>

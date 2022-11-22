@@ -27,6 +27,7 @@ const VotingOsis6 = () => {
         } else {
             navigate('/sukses')
         }
+        navigate('/sukses')
     }
     
     return(

@@ -63,7 +63,7 @@ const Login = () => {
                     isSignedIn={true}
                     render={renderProp => (
                         <div className="mt-10">
-                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl"> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
+                            <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl" onClick={goToVoting}> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
                         </div>
                     )}
                 />

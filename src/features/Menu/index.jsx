@@ -12,14 +12,14 @@ const Menu = () => {
     // state, props, hooks
     const navigate = useNavigate()
     const [pemilihan, setPemilihan] = useState([])
-    // const {id} = useParams()
+    //const {id} = useParams()
     const {user, setUser} = useState(null)
     const [id, setId] = useState([])
 
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/periode')
+            const result = await axios.get('http://116.197.129.178:8083/api/periode/')
                 .then((response) => response.data)
             setPemilihan(result)
         })()
