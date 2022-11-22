@@ -9,37 +9,25 @@ const VotingOsis6 = () => {
     const [voting, setVoting] = useState([])
     const [simpan, setSimpan] = useState(null) //null adalah nilai default dari simpan
     const {id} = useParams()
-    console.log(id)
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/4`)
-    //             .then((response) => response.data)
-    //         setJudul(result)
-    //     })()
-    // }, [id])
+    // useparams mengambil data dari url
+    console.log(voting.name)
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/4`)
+            const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/${id}`)
                 .then((response) => response.data)
             setVoting(result)
         })()
     }, [id])
     
-    // useEffect( () => {
-    //     fetch (`http://116.197.129.178:8083/api/periode ${id}`)
-    //     .then((resp) => resp.json())
-    //     .then((data) => {
-    //     setUser(data)
-    //         })
-    // }, [id])
+    useEffect(() => {
+        (async () => {
+            const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/${id}`)
+                .then((response) => response.data)
+            setJudul(result)
+        })()
+    }, [id])
 
-    // function ProfilePage() {
-    //     // Get the userId param from the URL.
-    //     let { userId } = useParams();
-    //     // ...
-    // }
 
     const cobaSimpan = (id) => {
         setSimpan(id)
@@ -51,12 +39,14 @@ const VotingOsis6 = () => {
         } else {
             console.log(simpan)
         }
-        //navigate('/sukses')
+        navigate('/sukses')
     }
     
     return(
         <div className="">
-            {voting.map( id => (<h1 className="font-bold text-center mt-5 text-3xl">{id.name}</h1>))}
+            {voting.map(j => (
+                <h1 className="font-bold text-center mt-5 text-3xl">{j.name}</h1>
+            ))}
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">
                 {voting.map(c => (
@@ -64,7 +54,7 @@ const VotingOsis6 = () => {
                         src={c.photo} 
                         key={c.id}
                         onClick={() => cobaSimpan(c.id)}
-                        className={`rounded-3xl pb-1 mx-auto border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
+                        className={`rounded-3xl pb-1 mx-auto border-4 ${simpan ? 'border-secondary ' : ''} bg-primary`}
                         />
                 ))}
             </div>

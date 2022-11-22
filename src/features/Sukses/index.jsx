@@ -13,8 +13,8 @@ const Sukses = () => {
               <img src={sukses} alt="gambar"/>
             </div>
             <h1 className="text-primary-400 font-bold text-2xl">TERIMAKASIH</h1>
-            <p>Anda Telah Mengikuti Ini <br />Dengan Jujur</p>
-            <KKPrimaryButton className=" bg-primary w-40 mt-10" onClick={() => {navigate("/menu")}}>Next</KKPrimaryButton>
+            <p>Anda sudah mengisi voting <br />dengan jujur</p>
+            <KKPrimaryButton className=" bg-primary w-40 mt-10" onClick={() => {navigate("/menu")}}>BACK</KKPrimaryButton>
         </div>
     )
 }

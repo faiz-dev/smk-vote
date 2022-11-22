@@ -76,13 +76,7 @@ const routes = createBrowserRouter([
                 <VotingOsis6 />
             </AuthProvider>
     },
-    // {
-    //     path: '/voting6',
-    //     element: 
-    //         <AuthProvider>
-    //             <VotingOsis6 />
-    //         </AuthProvider>
-    // },
+
     {
         path: '/sukses',
         element: 
