@@ -11,13 +11,13 @@ const VotingOsis6 = () => {
     const {id} = useParams()
     console.log(id)
 
-    useEffect(() => {
-        (async () => {
-            const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/${id}`)
-                .then((response) => response.data)
-            setJudul(result)
-        })()
-    }, [id])
+    // useEffect(() => {
+    //     (async () => {
+    //         const result = await axios.get(`http://116.197.129.178:8083/api/calon/periode/4`)
+    //             .then((response) => response.data)
+    //         setJudul(result)
+    //     })()
+    // }, [id])
 
     useEffect(() => {
         (async () => {
@@ -35,11 +35,11 @@ const VotingOsis6 = () => {
     //         })
     // }, [id])
 
-    function ProfilePage() {
-        // Get the userId param from the URL.
-        let { userId } = useParams();
-        // ...
-      }
+    // function ProfilePage() {
+    //     // Get the userId param from the URL.
+    //     let { userId } = useParams();
+    //     // ...
+    // }
 
     const cobaSimpan = (id) => {
         setSimpan(id)
@@ -56,7 +56,7 @@ const VotingOsis6 = () => {
     
     return(
         <div className="">
-            <h1 className="font-bold text-center mt-5 text-3xl">{judulVoting.name}</h1>
+            {voting.map( id => (<h1 className="font-bold text-center mt-5 text-3xl">{id.name}</h1>))}
             <p className="text-center mb-2">Klik gambar kandidat pilihan anda <br /> untuk memberi voting</p>
             <div className="flex-row md:flex">
                 {voting.map(c => (
@@ -64,11 +64,7 @@ const VotingOsis6 = () => {
                         src={c.photo} 
                         key={c.id}
                         onClick={() => cobaSimpan(c.id)}
-<<<<<<< HEAD
-                        className={`rounded-3xl pb-1 mx-auto border border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
-=======
                         className={`rounded-3xl pb-1 mx-auto border-4 ${c.isActive ? 'border-secondary ' : ''} bg-primary`}
->>>>>>> a3f655d3efd6724c09d53bd1d57b49e07f394527
                         />
                 ))}
             </div>

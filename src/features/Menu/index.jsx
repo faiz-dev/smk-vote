@@ -12,14 +12,14 @@ const Menu = () => {
     // state, props, hooks
     const navigate = useNavigate()
     const [pemilihan, setPemilihan] = useState([])
-    // const {id} = useParams()
+    const {id} = useParams()
     const {user, setUser} = useState(null)
     const [idd, setId] = useState([])
 
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/periode')
+            const result = await axios.get('http://116.197.129.178:8083/api/periode/')
                 .then((response) => response.data)
             setPemilihan(result)
         })()
@@ -39,18 +39,18 @@ const Menu = () => {
 
     const goToVoting = (id) => {
         setId(id)
-        navigate(`/voting/${pemilihan.id}`)
+        navigate(`/voting/${id}`)
     }
 
     const ToHasil = () => {
         navigate('/dev/hasil')
     }
 
-    function ProfilePage() {
-        // Get the userId param from the URL.
-        let { setId } = useParams();
-        // ...
-    }
+    // function ProfilePage() {
+    //     // Get the userId param from the URL.
+    //     let { setId } = useParams();
+    //     // ...
+    // }
       
 
     return (
@@ -59,21 +59,13 @@ const Menu = () => {
 
             <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
                 
-<<<<<<< HEAD
                 {pemilihan.filter(v =>v.isActive).map(p => (
-=======
-                {pemilihan.filter(v => v.isActive).map(p => (
->>>>>>> a3f655d3efd6724c09d53bd1d57b49e07f394527
                     <button 
                         key={p.id} 
                         className="bg-primary py-5 px-10 rounded-md"
                         onClick={ () => goToVoting(p.id) }
                         >
-<<<<<<< HEAD
                         {p.name +' '+ p.waktuBerakhir} 
-=======
-                        {p.name+" "+p.waktuBerakhir}
->>>>>>> a3f655d3efd6724c09d53bd1d57b49e07f394527
 
                         {/* <Routes>
                             <Route path="users">
