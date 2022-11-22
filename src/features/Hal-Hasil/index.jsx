@@ -67,7 +67,7 @@ const HalHasil = () => {
     
     return (
         <div className="mx-auto lg:grid grid-cols-3 grid-rows-3 ">
-            <img src={hasil} alt="JPG" loading="lazy" className="col-span-3 mx-auto rounded-3xl cursor-move lg:w-11/12 lg:h-96"/>
+            <img src={hasil} alt="JPG" loading="lazy" className="col-span-3 mx-auto rounded-3xl cursor-move lg:h-96"/>
 
             <div className="mt-10 lg:mx-10">
                     <h1 className="ml-4 font-bold lg:ml-10 lg:text-3xl">
@@ -75,7 +75,7 @@ const HalHasil = () => {
                     </h1>
 
                     <div 
-                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit cursor-pointer lg:mx-0 hover:bg-gray-500">
+                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
                             <div className="inline-flex">
                                 <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
                                     <h1 className="font-bold text-center pt-2">1</h1>
@@ -114,7 +114,7 @@ const HalHasil = () => {
                     </h1>
 
                     <div 
-                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit cursor-pointer lg:mx-0 hover:bg-gray-500">
+                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
                             <div className="inline-flex">
                                 <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
                                     <h1 className="font-bold text-center pt-2">1</h1>
@@ -143,7 +143,7 @@ const HalHasil = () => {
                     </h1>
 
                     <div 
-                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit cursor-pointer lg:mx-0 hover:bg-gray-500">
+                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
                             <div className="inline-flex">
                                 <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
                                     <h1 className="font-bold text-center pt-2">1</h1>
