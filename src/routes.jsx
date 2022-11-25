@@ -11,7 +11,8 @@ import Sukses from "./features/Sukses";
 import Voting from "./features/Voting";
 import VotingPramuka from "./features/VotingPramuka";
 import VotingOsis6 from "./features/VoteOsis/Dela";
-
+import axios from "axios";
+const url = 'https://vote-backend.greenfield-26de5c7e.eastasia.azurecontainerapps.io/api'
 
 const routes = createHashRouter([
     {
@@ -24,16 +25,8 @@ const routes = createHashRouter([
         children: [
             {
                 path: '/',
-                element: <PilihVote />
+                element: <Menu />
             },
-            {
-                path: '/vote/:id',
-                element: <Voting />
-            },
-            {
-                path: '/vote/:id/success',
-                element: <Sukses />
-            }
         ]
     },
     {
@@ -48,13 +41,6 @@ const routes = createHashRouter([
         element: 
             <AuthProvider>
                 <AlternativeLogin />
-            </AuthProvider>
-    },
-    {
-        path: '/menu',
-        element: 
-            <AuthProvider>
-                <Menu />
             </AuthProvider>
     },
     {
