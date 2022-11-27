@@ -66,7 +66,7 @@ const HalHasil = () => {
     }
     
     return (
-        <div className="mx-auto lg:grid grid-cols-3 grid-rows-3 ">
+        <div className="mx-auto pb-10 lg:grid grid-cols-3 grid-rows-3 ">
             <img src={hasil} alt="JPG" loading="lazy" className="col-span-3 mx-auto rounded-3xl cursor-move lg:h-96"/>
 
             <div className="mt-10 lg:mx-10">
