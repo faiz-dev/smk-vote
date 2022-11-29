@@ -62,7 +62,7 @@ const HalHasil = () => {
     // ]
 
     const goToMenu = () => {
-        navigate('/menu')
+        navigate('/')
     }
     
     return (
