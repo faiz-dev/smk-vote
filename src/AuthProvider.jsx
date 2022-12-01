@@ -7,7 +7,9 @@ const AuthProvider = ({children, isProtected = false}) => {
     const [token, setToken] = useState('')
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
-    const url = 'https://localhost:49154/api'
+    const [group, setGroup] = useState('')
+    const url = 'https://vote-backend.greenfield-26de5c7e.eastasia.azurecontainerapps.io/api'
+    // const url = 'https://localhost:49157/api'
     const navigate = useNavigate()
 
     const setPresistedToken = (token) =>{
@@ -23,6 +25,7 @@ const AuthProvider = ({children, isProtected = false}) => {
                     return res.data
                 })
                 setToken(login.token)
+                setGroup(login.groupId)
             }
         })()
     }, [email])
@@ -35,7 +38,7 @@ const AuthProvider = ({children, isProtected = false}) => {
 
     return (
         <AuthContext.Provider value={{
-            email, setEmail, name, token, url
+            email, setEmail, name, token, url, group
         }}>{children}</AuthContext.Provider>
     )
 }

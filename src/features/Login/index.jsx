@@ -5,7 +5,9 @@ import { Link, redirect, useNavigate } from "react-router-dom";
 import { GoogleLogin } from 'react-google-login'
 import { gapi } from 'gapi-script'
 import axios from "axios";
+import logo from './logo.png'
 import AuthContext from "../../AuthContext";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -26,30 +28,43 @@ const Login = () => {
 
     useEffect(() => {
         if (token != '') {
-            navigate("/menu")
+            Swal.close()
+            navigate("/")
         }
     }, [token])
+
+    const onRequest = (res) => {
+        Swal.fire({
+            text: "Melakukan Autentikasi"
+        })
+        Swal.showLoading()
+    }
 
     const onSuccess = (res) => {
         console.log('success:', res.profileObj.email);
         setEmail(res.profileObj.email)
-        setLoginMsg("OAuth Success, mencoba login ke server popapp")
+        setLoginMsg("Mohon menunggu")
     };
     const onFailure = (err) => {
         console.log('failed:', err);
+        Swal.fire({
+            text: "Terjadi kesalahan, cek kembali koneksi anda dan pastikan menggunakan email SMK"
+        })
     };
 
     return (
         <>
-            <div id="login" className="mt-20 text-center mx-auto md:rounded-2xl md:mt-20 md:bg-slate-200 md:p-14 md:w-96">
-            <img src="src/features/Login/logo.png" alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
+            <div id="login" className="mt-40 text-center mx-auto md:rounded-2xl md:mt-32 md:bg-slate-200 md:p-14 md:w-96">
+            <img src={logo} alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
                 <h1 className="text-center  font-bold text-3xl mt-10">LOGIN</h1>
+                {loginMsg}
 
                 <GoogleLogin
                     clientId={clientId}
                     buttonText="Sign in with Google"
                     onSuccess={onSuccess}
                     onFailure={onFailure}
+                    onRequest={onRequest}
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={false}
                     render={renderProp => (
