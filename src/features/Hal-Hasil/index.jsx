@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import hasil from './hasil.jpg'
+import hasil from './hasil.jpg';
+import AuthContext from "../../AuthContext";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const HalHasil = () => {
     const navigate = useNavigate()
+    const { url, token, group } = useContext(AuthContext)
+    const [hasill, setHasil] = useState([])
+    const { periodeId } = useParams()
+
+    useEffect ( () => {
+        (async () => {
+            const result = await axios.get(`${url}/Vote/periode/${periodeId}`, {
+                headers: {
+                    "authorization": 'bearer '+token
+                }
+        })
+            .then((response) => response.data)
+        setHasil(result)
+        })()
+    },[])
+
+    console.log(hasill)
     
     // const dataVotes = [
     //     {
@@ -68,6 +88,15 @@ const HalHasil = () => {
     return (
         <div className="mx-auto pb-10 lg:grid grid-cols-3 grid-rows-3 ">
             <img src={hasil} alt="JPG" loading="lazy" className="col-span-3 mx-auto rounded-3xl cursor-move lg:h-96"/>
+
+            {/* <h1 className="font-bold text-center mt-5 text-3xl">{hasill.name}</h1> */}
+            <div>
+                {hasill.map(h => (
+                    <div key={h.id}>
+                        <p name={h.name}></p>
+                    </div>
+                ))}
+            </div>
 
             <div className="mt-10 lg:mx-10">
                     <h1 className="ml-4 font-bold lg:ml-10 lg:text-3xl">
