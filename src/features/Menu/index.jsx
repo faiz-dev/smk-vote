@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from 'react-router-dom'
 import menu from './menu.jpg'
@@ -7,39 +7,29 @@ import { Route, Router, Routes } from "react-router-dom";
 import Voting from "../Voting";
 import { createBrowserRouter } from "react-router-dom";
 import {  Outlet } from "react-router-dom";
+import AuthContext from "../../AuthContext";
 
 const Menu = () => {
     // state, props, hooks
     const navigate = useNavigate()
     const [pemilihan, setPemilihan] = useState([])
-    // const {id} = useParams()
+    const { url } = useContext(AuthContext)
+    //const {id} = useParams()
     const {user, setUser} = useState(null)
-    const [idd, setId] = useState([])
+    const [id, setId] = useState([])
 
 
     useEffect(() => {
         (async () => {
-            const result = await axios.get('http://116.197.129.178:8083/api/periode')
+            const result = await axios.get(url+'/periode')
                 .then((response) => response.data)
             setPemilihan(result)
         })()
     }, [])
 
-    // useEffect( () => {
-    //     fetch (`http://116.197.129.178:8083/api/periode ${id}`)
-    //     .then((resp) => resp.json())
-    //     .then((data) => {
-    //         setUser(data)
-    //     })
-    // }, [id])
-
-    // const tangkapId = (id) => {
-    //     setId(id)
-    // }
-
     const goToVoting = (id) => {
         setId(id)
-        navigate(`/voting/${pemilihan.id}`)
+        navigate(`/voting/${id}`)
     }
 
     const ToHasil = () => {
@@ -49,30 +39,23 @@ const Menu = () => {
     function ProfilePage() {
         // Get the userId param from the URL.
         let { setId } = useParams();
-        // ...
     }
       
 
+    
     return (
         <div className="mx-auto text-center p-3 max-w-[500px]">
             <img src={menu} className="rounded-3xl py-25 md:col-span-2 md:w-full mb-10"/>
 
             <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
                 
-                {pemilihan.filter(v =>v.isActive).map(p => (
+                {pemilihan.filter(p => p.isActive).map(p => (
                     <button 
                         key={p.id} 
                         className="bg-primary py-5 px-10 rounded-md"
                         onClick={ () => goToVoting(p.id) }
                         >
                         {p.name +' '+ p.waktuBerakhir} 
-
-                        {/* <Routes>
-                            <Route path="users">
-                                <Route path=":http://116.197.129.178:8083/api/calon/periode/" element={<Voting />} />
-                                <Route path="me" element={...} />
-                            </Route>
-                        </Routes> */}
                     </button>
                 ))}
 
