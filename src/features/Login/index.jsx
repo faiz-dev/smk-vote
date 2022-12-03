@@ -75,7 +75,8 @@ const Login = () => {
                 />
 
                 <p className="text-center text-[1rem] mt-3">
-                    Tidak bisa login google SMK? <Link to="alt" className="text-button hover:text-teal-500 font-bold underline">klik di sini</Link>
+                    Pastikan login menggunakan akun SMK <br />
+                    {/* Tidak bisa login google SMK? <Link to="alt" className="text-button hover:text-teal-500 font-bold underline">klik di sini</Link> */}
                 </p>
 
             </div>
