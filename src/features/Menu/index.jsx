@@ -97,7 +97,7 @@ const Menu = () => {
                                 onClick={ () => goToVoting(p.id) }
                                 >
                                 {p.name}  <br />
-                                <span className="text-[0.8em]">Berakhir pada: {moment(p.waktuBerakhir).format('H:m')} WIB | {moment(p.waktuBerakhir).format('D MMM YYYY')}</span>
+                                <span className="text-[0.8em]">Berakhir pada: {moment(p.waktuBerakhir).format('D MMM YYYY')} | {moment(p.waktuBerakhir).format('H:m')}WIB</span>
                                 
                                 {
                                     udahVote.find(uv => uv == p.id) ? (

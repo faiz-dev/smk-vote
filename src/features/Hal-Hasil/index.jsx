@@ -3,6 +3,7 @@ import { useNavigate,useParams } from "react-router-dom";
 import hasil from './hasil.jpg';
 import AuthContext from "../../AuthContext";
 import axios from "axios";
+import moment from "moment/moment";
 
 const HalHasil = () => {
     const navigate = useNavigate()
@@ -64,7 +65,10 @@ const HalHasil = () => {
                 <div 
                     className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
                         {hasilOsis.map(o => (
-                            <div className="inline-flex">
+                            moment().diff(moment(o.calon.periode.waktuBerakhir)) < 0 ? (
+                                <h2>Hasil dibuka pada {moment(o.calon.periode.waktuBerakhir).format('D MMM YYYY H:m')} WIB</h2>
+                            ) :
+                            (<div className="inline-flex">
                                 <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
                                     <h1 className="font-bold text-center pt-2">{o.calon.noUrut}</h1>
                                 </div>
@@ -72,8 +76,7 @@ const HalHasil = () => {
                                     <h2 className="font-semibold">{o.calon.name}</h2>
                                         <progress className="w-52 h-6" value={(o.voteCount/o.totalCount*100).toFixed(2)} max={(o.totalCount/o.totalCount*100)}></progress>
                                 </div>
-                            </div>
-                        ))}
+                            </div>)))}
                 </div>
             </div>
 
@@ -84,19 +87,21 @@ const HalHasil = () => {
 
                 <div 
                     className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
-                        {hasilPradana.map(x => (
-                            <div className="inline-flex">
+                        {hasilPradana.map(o => (
+                            moment().diff(moment(o.calon.periode.waktuBerakhir)) < 0 ? (
+                                <h2>Hasil dibuka pada {moment(o.calon.periode.waktuBerakhir).format('D MMM YYYY H:m')} WIB</h2>
+                            ) :
+                            (<div className="inline-flex">
                                 <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
-                                    <h1 className="font-bold text-center pt-2">{x.calon.noUrut}</h1>
+                                    <h1 className="font-bold text-center pt-2">{o.calon.noUrut}</h1>
                                 </div>
                                 <div className="pl-3">
-                                    <h2 className="font-semibold">{x.calon.name}</h2>
-                                        <progress className="w-52 h-6" value={(x.voteCount/x.totalCount*100).toFixed(2)} max={(x.totalCount/x.totalCount*100)}></progress>
+                                    <h2 className="font-semibold">{o.calon.name}</h2>
+                                        <progress className="w-52 h-6" value={(o.voteCount/o.totalCount*100).toFixed(2)} max={(o.totalCount/o.totalCount*100)}></progress>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            </div>)))}
                 </div>
+            </div>
 
                 <div className="mt-10 lg:mx-10">
                     <h1 className="ml-4 font-bold lg:ml-10 lg:text-3xl">
@@ -104,18 +109,20 @@ const HalHasil = () => {
                     </h1>
 
                     <div 
-                        className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
-                            {hasilPradani.map(y => (
-                                <div className="inline-flex">
-                                    <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
-                                        <h1 className="font-bold text-center pt-2">{y.calon.noUrut}</h1>
-                                    </div>
-                                    <div className="pl-3">
-                                        <h2 className="font-semibold">{y.calon.name}</h2>
-                                            <progress className="w-52 h-6" value={(y.voteCount/y.totalCount*100).toFixed(2)} max={(y.totalCount/y.totalCount*100)}></progress>
-                                    </div>
+                    className="bg-div p-3 font-bold mx-auto rounded-3xl lg:mt-0 lg:w-full lg:h-fit lg:mx-0">
+                        {hasilPradani.map(o => (
+                            moment().diff(moment(o.calon.periode.waktuBerakhir)) < 0 ? (
+                                <h2>Hasil dibuka pada {moment(o.calon.periode.waktuBerakhir).format('D MMM YYYY H:m')} WIB</h2>
+                            ) :
+                            (<div className="inline-flex">
+                                <div className=" rounded-full bg-bulat w-14 h-14 mb-3">
+                                    <h1 className="font-bold text-center pt-2">{o.calon.noUrut}</h1>
                                 </div>
-                            ))}
+                                <div className="pl-3">
+                                    <h2 className="font-semibold">{o.calon.name}</h2>
+                                        <progress className="w-52 h-6" value={(o.voteCount/o.totalCount*100).toFixed(2)} max={(o.totalCount/o.totalCount*100)}></progress>
+                                </div>
+                            </div>)))}
                     </div>
                 </div>
             

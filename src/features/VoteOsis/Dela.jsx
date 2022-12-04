@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AuthContext from "../../AuthContext";
 import Loading from "../../components/Loading";
+import Swal from "sweetalert2";
 
 const VotingOsis6 = () => {
     const navigate = useNavigate()
@@ -43,7 +44,8 @@ const VotingOsis6 = () => {
 
     const goToSukses = async () =>{
         if (simpan===null){
-            alert('harus ada calon yang anda pilih')
+            // alert('harus ada calon yang anda pilih')
+            Swal.fire({text: "Harus ada calon yang anda pilih", confirmButtonColor: '#81A9B8'})
         } else {
             console.log(`kita kirimkan data: pilihanId ${simpan} dan periodeId ${periodeId}`)
             await sendVote()
@@ -87,7 +89,7 @@ const VotingOsis6 = () => {
                                 </div>
                             ) : "" }
                             {voting.map(c => (
-                                <div key={c.id}>
+                                <div key={c.id} className="mx-auto">
                                     <img 
                                         src={c.photo} 
                                         onClick={() => cobaSimpan(c.id)}

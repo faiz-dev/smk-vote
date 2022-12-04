@@ -53,7 +53,7 @@ progress::-webkit-progress-value {
 
 progress:after {
   font-weight: bold;
-  color: black;
+  color: #B9F8FF;
 	margin:-21px 30px 20px 8px;
 	padding:0;
 	display:inline-block; /* Here is the magic to move with the progress */
