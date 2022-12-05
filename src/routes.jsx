@@ -27,6 +27,20 @@ const routes = createHashRouter([
                 path: '/',
                 element: <Menu />
             },
+            {
+                path: '/voting/:periodeId',
+                element: 
+                    <AuthProvider>
+                        <VotingOsis6 />
+                    </AuthProvider>
+            },
+            {
+                path: '/sukses',
+                element: 
+                    <AuthProvider>
+                        <Sukses />
+                    </AuthProvider>
+            },
         ]
     },
     {
@@ -37,41 +51,26 @@ const routes = createHashRouter([
             </AuthProvider>
     },
     {
-        path: '/login/alt',
-        element: 
-            <AuthProvider>
-                <AlternativeLogin />
-            </AuthProvider>
-    },
-    {
-        path: '/dev/votingpramuka',
-        element: 
-            <AuthProvider>
-                <VotingPramuka />
-            </AuthProvider>
-    },
-    {
-        path: '/voting/:periodeId',
-        element: 
-            <AuthProvider>
-                <VotingOsis6 />
-            </AuthProvider>
-    },
-
-    {
-        path: '/sukses',
-        element: 
-            <AuthProvider>
-                <Sukses />
-            </AuthProvider>
-    },
-    {
-        path: '/dev/hasil',
+        path: '/hasil',
         element: 
             <AuthProvider>
                 <HalHasil />
             </AuthProvider>
     }
+    // {
+    //     path: '/login/alt',
+    //     element: 
+    //         <AuthProvider>
+    //             <AlternativeLogin />
+    //         </AuthProvider>
+    // },
+    // {
+    //     path: '/dev/votingpramuka',
+    //     element: 
+    //         <AuthProvider>
+    //             <VotingPramuka />
+    //         </AuthProvider>
+    // },
 ])
 
 export default routes

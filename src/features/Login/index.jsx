@@ -54,9 +54,9 @@ const Login = () => {
 
     return (
         <>
-            <div id="login" className="mt-40 text-center mx-auto md:rounded-2xl md:mt-32 md:bg-slate-200 md:p-14 md:w-96">
-            <img src={logo} alt="Logo" className="mx-auto mt-20 w-72 md:mt-0"/>
-                <h1 className="text-center  font-bold text-3xl mt-10">LOGIN</h1>
+            <div id="login" className="pt-40 mt-[-10px] text-center mx-auto md:rounded-2xl md:mt-32 h-screen sm:h-auto md:bg-slate-200 md:p-14 md:w-96 relative">
+                <img src={logo} alt="Logo" className="mx-auto mt-10 w-72 md:mt-0"/>
+                <h1 className="text-center  font-bold text-3xl ">LOGIN</h1>
                 {loginMsg}
 
                 <GoogleLogin
@@ -68,16 +68,21 @@ const Login = () => {
                     cookiePolicy={'single_host_origin'}
                     isSignedIn={false}
                     render={renderProp => (
-                        <div className="mt-10">
+                        <div className="mt-5">
                             <button {...renderProp} className="inline-flex bg-button hover:bg-teal-500 p-3 rounded-xl"> <BsGoogle size={13} className="mt-1 mr-1"/>Klik disini untuk login</button>                   
                         </div>
                     )}
                 />
 
-                <p className="text-center text-[1rem] mt-3">
+                <p className="text-center text-[1rem] mt-3 mb-10">
                     Pastikan login menggunakan akun SMK <br />
                     {/* Tidak bisa login google SMK? <Link to="alt" className="text-button hover:text-teal-500 font-bold underline">klik di sini</Link> */}
                 </p>
+
+                <p
+                    className="absolute bottom-100 md:buttom-5 text-center left-0 right-0 text-red-500 animate-bounce cursor-pointer"
+                    onClick={() => navigate('/hasil')}
+                >Lihat Hasil Pemilihan di sini</p>
 
             </div>
         </>

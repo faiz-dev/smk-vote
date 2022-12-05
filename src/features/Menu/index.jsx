@@ -25,16 +25,22 @@ const Menu = () => {
 
     useEffect(() => {
         (async () => {
-            const savedPeriodes = localStorage.getItem('periodes')
-            if (!savedPeriodes) {
-                const result = await axios.get(url+'/periode')
+            const result = await axios.get(url+'/periode')
                     .then((response) => response.data)
-                localStorage.setItem('periodes', JSON.stringify(result))
-                setPemilihan(result)
-                setIsLoading([...isLoading, true])
-            } else {
-                setPemilihan(JSON.parse(savedPeriodes))
-            }
+            // localStorage.setItem('periodes', JSON.stringify(result))
+            setPemilihan(result)
+            setIsLoading([...isLoading, true])
+            
+            // const savedPeriodes = localStorage.getItem('periodes')
+            // if (!savedPeriodes) {
+            //     const result = await axios.get(url+'/periode')
+            //         .then((response) => response.data)
+            //     localStorage.setItem('periodes', JSON.stringify(result))
+            //     setPemilihan(result)
+            //     setIsLoading([...isLoading, true])
+            // } else {
+            //     setPemilihan(JSON.parse(savedPeriodes))
+            // }
         })()
     }, [])
 
@@ -66,7 +72,7 @@ const Menu = () => {
     }
 
     const ToHasil = () => {
-        navigate('/dev/hasil')
+        navigate('/hasil')
     }
     
     return (
@@ -74,10 +80,27 @@ const Menu = () => {
             {isLoading.length == 2 ? (
                 <Loading namaData="Pemilihan"/>
             ) : (
+                
                 <div className="mx-auto text-center p-3 max-w-[500px]">
                     <img src={menu} className="rounded-3xl py-25 md:col-span-2 md:w-full mb-10"/>
         
                     <div className="flex flex-col sm:flex-row gap-5 md:grid grid-cols-2 grid-rows-1 ">
+                        {pemilihan.filter(p => {
+                            if (!p.isActive) {
+                                return false
+                            } else if (p.groups == "") {
+                                return true
+                            } else {
+                                const groups = p.groups.split(",")
+                                if (groups.findIndex(g => g == group) == -1) {
+                                    return false
+                                } return true
+                            }
+                        }).length == 0 ? (
+                            <div className="border border-dashed py-4 text-center border-gray-500 rounded rounded-lg font-bold text-gray-600">
+                                Tidak ada Periode yang aktif saat ini
+                            </div>
+                        ): ''}
                         
                         {pemilihan.filter(p => {
                             if (!p.isActive) {
