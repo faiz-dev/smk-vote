@@ -53,7 +53,8 @@ const VotingOsis6 = () => {
                     navigate('/sukses')
                 })
             .catch(err => {
-                alert("terjadi kesalahan, pilihan anda tidak tersimpan")
+                // alert("terjadi kesalahan, pilihan anda tidak tersimpan")
+                Swal.fire({text: "terjadi kesalahan, pilihan anda tidak tersimpan", confirmButtonColor: '#81A9B8'})
             })
         }
     }

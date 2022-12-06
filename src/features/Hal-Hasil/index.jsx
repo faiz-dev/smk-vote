@@ -31,6 +31,12 @@ const HalHasil = () => {
         <div className="mx-auto pb-10 lg:grid grid-cols-3 grid-rows-3 ">
             <img src={hasil} alt="JPG" loading="lazy" className="col-span-3 mx-auto rounded-3xl cursor-move lg:h-96"/>
 
+            {pemilihan.filter(p => p.isActive).length == 0 ? (
+                            <div className="border border-dashed py-4 text-center border-gray-500 rounded-lg font-bold text-gray-600 mt-10">
+                                Tidak ada Hasil saat ini
+                            </div>
+                        ): ''}
+
             {pemilihan.filter(p => p.isActive).map(p => (
                 <GrafikHasil key={p.id} judul={p.name} id={p.id} waktuBerakhir={p.waktuBerakhir} />
             ))}
