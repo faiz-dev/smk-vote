@@ -14,7 +14,7 @@ const VotingOsis6 = () => {
     const [simpan, setSimpan] = useState(null) //null adalah nilai default dari simpan
     const [isLoadingCandidate, setIsLoadingCandidate] = useState(true)
     const { periodeId } = useParams() // useparams mengambil data dari url
-
+    console.log(token)
     useEffect(() => {
         (async () => {
             const result = await axios.get(`${url}/calon/periode/${periodeId}`, {

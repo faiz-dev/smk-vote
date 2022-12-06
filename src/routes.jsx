@@ -30,16 +30,12 @@ const routes = createHashRouter([
             {
                 path: '/voting/:periodeId',
                 element: 
-                    <AuthProvider>
-                        <VotingOsis6 />
-                    </AuthProvider>
+                    <VotingOsis6 />
             },
             {
                 path: '/sukses',
                 element: 
-                    <AuthProvider>
-                        <Sukses />
-                    </AuthProvider>
+                    <Sukses />
             },
         ]
     },
