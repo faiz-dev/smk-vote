@@ -58,7 +58,7 @@ progress:after {
 	padding:0;
 	display:inline-block; /* Here is the magic to move with the progress */
 	float:left;
-	content: attr(value)'%';
+	content: attr(value);
 }
   
 

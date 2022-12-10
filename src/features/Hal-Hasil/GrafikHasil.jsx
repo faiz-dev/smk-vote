@@ -41,7 +41,7 @@ const GrafikHasil = ({judul, id, waktuBerakhir}) => {
                                 </div>
                                 <div className="pl-3">
                                     <h2 className="font-semibold">{o.calon.name}</h2>
-                                        <progress className="w-52 h-6" value={(o.voteCount/o.totalCount*100).toFixed(2)} max={(o.totalCount/o.totalCount*100)}></progress>
+                                        <progress className="w-52 h-6" value={o.voteCount} max={o.totalCount}></progress>
                                 </div>
                             </div>)))
                     : (
