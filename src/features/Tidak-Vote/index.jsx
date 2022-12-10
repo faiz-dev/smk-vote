@@ -22,7 +22,7 @@ const NoVote = () => {
 
     return (
         <div>
-            {pemilihan
+            {pemilihan.filter(p => p.isActive)
                 .map(p => (
                 <button 
                     onClick={ () => ToDaftar(p.id) } 
