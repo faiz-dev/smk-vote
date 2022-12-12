@@ -69,3 +69,8 @@ progress:after {
 .card-primary {
   @apply bg-primary;
 }
+
+.table-bordered tr td, th {
+  border: 1px solid #ccc;
+  padding: 5px;
+}

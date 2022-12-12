@@ -13,12 +13,11 @@ const Daftar = () => {
     const [userSearch, setUserSearch] = useState(null)
     const [groups, setGroups] = useState([]) 
     const [selectedGroup, setSelectedGroup] = useState("")
-    const [usersGroup, setUsersGroup] = useState({})
+    const [usersGroup, setUsersGroup] = useState([])
     const roles = ['USER', 'ADMIN', 'GURU', 'SISWA']
     const { url, token, group } = useContext(AuthContext)
     const { id } = useParams()
     const [periode, setPeriode] = useState({})
-    const user = usersGroup.userGolput
 
     useEffect(() => {
         (async () => {
@@ -41,9 +40,9 @@ const Daftar = () => {
     useEffect(() => {
         (async () => {
             if(selectedGroup != ""){
-                const users = await axios.get(`${url}/vote/golput/${id}/${selectedGroup}`)
+                const result = await axios.get(`${url}/vote/voted/${id}/${selectedGroup}`)
                     .then(res => res.data)
-                setUsersGroup(users)
+                setUsersGroup(result.allUsers.filter(u => result.userVoted.findIndex(uv => uv.id == u.id) != -1))
             }
         })()
     }, [selectedGroup])
@@ -60,7 +59,7 @@ const Daftar = () => {
                     value={selectedGroup}
                     options={groups ? groups.map(g => ({value: g.id, text: g.name})) : []}
                 />
-                {user == null ? "" : (<div className="card">
+                {usersGroup == null ? "" : (<div className="card">
                         <div className="card-body">
                             <table className="table w-full">
                                 <thead className="bg-primary">
@@ -73,12 +72,12 @@ const Daftar = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {user.map((u, i) => (
+                                    {usersGroup.map((u, i) => (
                                         <tr>
                                             <td className="text-center">{i+1}</td>
                                             <td>{u.name}</td>
                                             <td>{roles[u.role]}</td>
-                                            <td>{u.group.name}</td>
+                                            <td></td>
                                             <td>Tidak Memilih</td>
                                         </tr>
                                     ))}

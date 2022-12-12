@@ -31,16 +31,6 @@ const Menu = () => {
             setPemilihan(result)
             setIsLoading([...isLoading, true])
             
-            // const savedPeriodes = localStorage.getItem('periodes')
-            // if (!savedPeriodes) {
-            //     const result = await axios.get(url+'/periode')
-            //         .then((response) => response.data)
-            //     localStorage.setItem('periodes', JSON.stringify(result))
-            //     setPemilihan(result)
-            //     setIsLoading([...isLoading, true])
-            // } else {
-            //     setPemilihan(JSON.parse(savedPeriodes))
-            // }
         })()
     }, [])
 

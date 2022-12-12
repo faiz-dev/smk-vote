@@ -14,6 +14,7 @@ import VotingOsis6 from "./features/VoteOsis/Dela";
 import axios from "axios";
 import NoVote from "./features/Tidak-Vote";
 import Daftar from "./features/Tidak-Vote/daftar";
+import RekapKelas from "./features/RekapKelas";
 const url = 'https://vote-backend.greenfield-26de5c7e.eastasia.azurecontainerapps.io/api'
 
 const routes = createHashRouter([
@@ -53,6 +54,13 @@ const routes = createHashRouter([
         element: 
             <AuthProvider>
                 <HalHasil />
+            </AuthProvider>
+    },
+    {
+        path: '/rekap',
+        element: 
+            <AuthProvider>
+                <RekapKelas />
             </AuthProvider>
     },
     {
