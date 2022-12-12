@@ -12,6 +12,7 @@ const Voting = ({params}) => {
     const [selected, setSelected] = useState(0)
     const navigate = useNavigate()
     const [calon, setCalon] = useState([])
+    const [sending, setSending] = useState(false)
 
     useEffect(() => {
         (async () => {

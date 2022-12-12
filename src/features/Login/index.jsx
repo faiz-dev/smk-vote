@@ -82,7 +82,7 @@ const Login = () => {
                 <p
                     className="absolute bottom-100 md:buttom-5 text-center left-0 right-0 text-red-500 animate-bounce cursor-pointer"
                     onClick={() => navigate('/hasil')}
-                >Lihat Hasil Pemilihan di sini</p>
+                >Lihat Hasil Pemilihan di sini <br /> v106</p>
 
             </div>
         </>

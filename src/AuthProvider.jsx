@@ -8,7 +8,7 @@ const AuthProvider = ({children, isProtected = false}) => {
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [group, setGroup] = useState('')
-    const url = 'https://vote-backend-105.greenfield-26de5c7e.eastasia.azurecontainerapps.io/api'
+    const url = 'https://vote-backend-106.greenfield-26de5c7e.eastasia.azurecontainerapps.io/api'
     // const url = 'http://localhost:5203/api'
     const navigate = useNavigate()
 

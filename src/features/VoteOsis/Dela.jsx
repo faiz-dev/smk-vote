@@ -14,6 +14,7 @@ const VotingOsis6 = () => {
     const [simpan, setSimpan] = useState(null) //null adalah nilai default dari simpan
     const [isLoadingCandidate, setIsLoadingCandidate] = useState(true)
     const { periodeId } = useParams() // useparams mengambil data dari url
+    const [sending, setSending] = useState(false)
     console.log(token)
     useEffect(() => {
         (async () => {
@@ -60,6 +61,8 @@ const VotingOsis6 = () => {
     }
 
     const sendVote = async () => {
+        if (sending) return
+        setSending(true)
         const result = await axios.post(`${url}/vote`, {
                         pilihanId: simpan, 
                         periodeId: periodeId
@@ -70,6 +73,7 @@ const VotingOsis6 = () => {
                     }).then(res => res.data)
                     .catch(err => {
                         throw err
+                        setSending(false)
                     })
         return result
     }

@@ -42,7 +42,14 @@ const Daftar = () => {
             if(selectedGroup != ""){
                 const result = await axios.get(`${url}/vote/voted/${id}/${selectedGroup}`)
                     .then(res => res.data)
-                setUsersGroup(result.allUsers.filter(u => result.userVoted.findIndex(uv => uv.id == u.id) != -1))
+                setUsersGroup(result.allUsers.filter(u => {
+                    console.log('userid', u.id)
+                    const cek = result.userVoted.findIndex(uv => {
+                        return uv.userId == u.id
+                    })
+                    console.log('cek', cek)
+                    return cek < 0
+                } ))
             }
         })()
     }, [selectedGroup])
